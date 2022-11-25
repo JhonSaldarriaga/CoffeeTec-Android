@@ -3,5 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_add_tree">Registro de cafeto</string>
+    <string name="add_photo_add_tree">Adjuntar foto...</string>
+    <string name="register">Registrar</string>
     <string name="name_hint">Nombre</string>
 </resources>
