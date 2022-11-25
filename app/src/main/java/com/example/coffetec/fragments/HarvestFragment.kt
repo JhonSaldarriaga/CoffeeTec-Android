@@ -10,9 +10,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.coffetec.Harvest
 import com.example.coffetec.HarvestAdapter
 import com.example.coffetec.NewHarvest
+import com.example.coffetec.ShowHarvestActivity
 import com.example.coffetec.databinding.FragmentHarvestBinding
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
+import com.google.firebase.ktx.Firebase
 
-class HarvestFragment : Fragment(), NewHarvest.OnNewHarvestListener {
+class HarvestFragment : Fragment(), HarvestAdapter.OnClickHarvestListener {
 
     private var _binding : FragmentHarvestBinding? = null
     private val binding  get() = _binding!!
@@ -35,6 +39,8 @@ class HarvestFragment : Fragment(), NewHarvest.OnNewHarvestListener {
         postRecycler.setHasFixedSize(true)
         postRecycler.layoutManager = LinearLayoutManager(activity)
         postRecycler.adapter = adapter
+        
+        loadHarvests()
 
         binding.addHarvest.setOnClickListener {
             val intent = Intent(this.context, NewHarvest::class.java)
@@ -43,7 +49,14 @@ class HarvestFragment : Fragment(), NewHarvest.OnNewHarvestListener {
         return view
     }
 
-
+    private fun loadHarvests(){
+        Firebase.firestore.collection("harvests").get()
+            .addOnCompleteListener { harvest->
+                for(i in harvest.result!!){
+                    adapter.addHarvest(i.toObject(Harvest::class.java))
+                }
+            }
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
@@ -55,8 +68,10 @@ class HarvestFragment : Fragment(), NewHarvest.OnNewHarvestListener {
         fun newInstance() = HarvestFragment()
     }
 
-    override fun onNewHarvest(id:String, numBag: Int, date: String, qr: String, state: String){
-        val newHarvest = Harvest(id,numBag,date,qr,state)
-        adapter.addHarvest(newHarvest)
+    override fun openInfoHarvest(id: String) {
+        val intent = Intent(activity, ShowHarvestActivity::class.java).apply {
+            putExtra("idHarvest", id)
+        }
+        startActivity(intent)
     }
 }

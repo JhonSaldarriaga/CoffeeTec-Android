@@ -3,10 +3,12 @@ package com.example.coffetec
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.coffetec.fragments.HarvestFragment
 
 class HarvestAdapter: RecyclerView.Adapter<HarvestViewHolder>() {
 
     private val harvests = ArrayList<Harvest>()
+    lateinit var onClickHarvestListener: HarvestFragment
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HarvestViewHolder {
         var inflater = LayoutInflater.from(parent.context)
@@ -28,6 +30,16 @@ class HarvestAdapter: RecyclerView.Adapter<HarvestViewHolder>() {
 
     override fun getItemCount(): Int {
         return  harvests.size
+    }
+
+    fun clear() {
+        val size = harvests.size
+        harvests.clear()
+        notifyItemRangeRemoved(0,size)
+    }
+
+    interface OnClickHarvestListener{
+        fun openInfoHarvest(id: String)
     }
 
 }

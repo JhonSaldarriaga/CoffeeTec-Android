@@ -1,22 +1,22 @@
 package com.example.coffetec
 
+import android.content.Intent
 import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.coffetec.databinding.ActivityNewHarvestBinding
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.google.zxing.BarcodeFormat
 import com.journeyapps.barcodescanner.BarcodeEncoder
 import java.text.SimpleDateFormat
+import com.google.gson.Gson
 import java.util.*
 
 class NewHarvest : AppCompatActivity() {
 
     private lateinit var binding : ActivityNewHarvestBinding
-
-
-    //Listener
-
-    var listener : OnNewHarvestListener?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,14 +31,28 @@ class NewHarvest : AppCompatActivity() {
             val qr = binding.ivCodigoQR.toString()
             val state = binding.stateSpinner.toString()
 
-            listener?.let {
-                it.onNewHarvest(id, numBul,date,qr,state)
+            if(id!="" && date!="" && state!="") {
+                var harvest = Harvest(id,numBul,date,qr,state)
+
+                Firebase.firestore.collection("harvests")
+                    .document(id).set(harvest).addOnCompleteListener {
+                        Toast.makeText(this, "Datos registrados exitosamente", Toast.LENGTH_SHORT).show()
+                    }
+
+                val intent = Intent(this, HomeActivity::class.java).apply {
+                    putExtra("newHarvest",true)
+                    putExtra("harvest", Gson().toJson(harvest))
+                }
+                startActivity(intent)
+            }else {
+                Toast.makeText(this, "Por favor, rellenar correctamente los campos", Toast.LENGTH_SHORT).show()
             }
         }
 
         binding.btnCancel.setOnClickListener {
             binding.ivCodigoQR.setImageBitmap(null)
             binding.etDatos.text.clear()
+            finish()
         }
 
         binding.btnGenerar.setOnClickListener {
@@ -55,9 +69,6 @@ class NewHarvest : AppCompatActivity() {
                 e.printStackTrace()
             }
         }
-    }
-    interface OnNewHarvestListener{
-        fun onNewHarvest(id:String, numBul:Int,date:String,qr:String,state:String)
     }
 
     fun Date.toString(format: String, locale: Locale = Locale.getDefault()): String {
