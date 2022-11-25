@@ -7,6 +7,7 @@
     <string name="register">Registrar</string>
     <string name="name_hint">Nombre</string>
     <string name="id_hint">ID</string>
+    <string name="date_hint">Fecha</string>
     <string name="title_show_tree">Datos del cafeto</string>
 
     <string-array name="tree_sicks">

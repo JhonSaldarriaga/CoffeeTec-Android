@@ -16,8 +16,6 @@ class ShowTreeFragment : Fragment() {
     private var _binding : FragmentShowTreeBinding? = null
     private val binding get() = _binding!!
 
-
-
     override fun onResume() {
         super.onResume()
         loadSpinner()
