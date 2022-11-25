@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ShowHarvestActivity">
+
+    <Spinner
+        android:id="@+id/stateSpinner2"
+        android:layout_width="239dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="19dp"
+        android:entries="@array/states_spinner"
+        app:layout_constraintStart_toStartOf="@+id/dateHarvest"
+        app:layout_constraintTop_toBottomOf="@+id/dateHarvest" />
+
+    <TextView
+        android:id="@+id/idHarvest"
+        android:layout_width="181dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="108dp"
+        android:text="ID"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dateHarvest"
+        android:layout_width="181dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="20dp"
+        android:text="Fecha"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/idHarvest"
+        app:layout_constraintTop_toBottomOf="@+id/idHarvest" />
+
+    <TextView
+        android:id="@+id/numBult"
+        android:layout_width="181dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="24dp"
+        android:text="Numero de bultos"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/stateSpinner2"
+        app:layout_constraintTop_toBottomOf="@+id/stateSpinner2" />
+
+    <Button
+        android:id="@+id/btnEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="135dp"
+        android:text="Editar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numBult" />
+</androidx.constraintlayout.widget.ConstraintLayout>

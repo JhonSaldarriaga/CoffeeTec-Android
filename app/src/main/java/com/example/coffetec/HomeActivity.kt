@@ -9,7 +9,7 @@ import com.example.coffetec.fragments.HarvestFragment
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var harvestFragment: HarvestFragment
-    private lateinit var profileFragment : ProfileFragment
+    private lateinit var newHarvest: NewHarvest
     private val binding : ActivityHomeBinding by lazy { ActivityHomeBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,12 +17,13 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         harvestFragment = HarvestFragment.newInstance()
-        profileFragment = ProfileFragment.newInstance()
+
+        //suscription
+
 
         binding.navigator.setOnItemSelectedListener { menuItem->
             when(menuItem.itemId){
                 R.id.harvestmenu -> {showFragment(harvestFragment)}
-                R.id.homemenu -> {showFragment(profileFragment)}
             }
             true
         }

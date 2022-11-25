@@ -10,11 +10,9 @@
         android:id="@+id/navigator"
         android:layout_width="412dp"
         android:layout_height="67dp"
-        android:layout_marginTop="664dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/menuapp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
