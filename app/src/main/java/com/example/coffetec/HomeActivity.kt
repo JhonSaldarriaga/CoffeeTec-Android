@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.coffetec.databinding.ActivityHomeBinding
 import com.example.coffetec.fragments.HarvestFragment
+import com.example.coffetec.fragments.ProfileFragment
 
 class HomeActivity : AppCompatActivity() {
 
