@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="Registro de dispositivo"
+        android:text="Registro de sensor"
         android:textColor="@color/brown"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,18 +62,14 @@
         app:layout_constraintStart_toStartOf="@+id/nameSensorRegistText"
         app:layout_constraintTop_toBottomOf="@+id/nameSensorRegistText">
 
-        <EditText
-            android:id="@+id/namesensorText3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/background_input"
-            android:ems="10"
-            android:hint="Tipo de sensor"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
-            android:paddingStart="5dp"
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
