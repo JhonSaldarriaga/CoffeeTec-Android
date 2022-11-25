@@ -6,11 +6,15 @@ import androidx.fragment.app.Fragment
 import com.example.coffetec.databinding.ActivityHomeBinding
 import com.example.coffetec.fragments.HarvestFragment
 import com.example.coffetec.fragments.ProfileFragment
+import com.example.coffetec.fragments.ShowTreeFragment
+import com.example.coffetec.fragments.TreesFragment
 
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var harvestFragment: HarvestFragment
     private lateinit var profileFragment : ProfileFragment
+    private lateinit var treesFragment: TreesFragment
+    private lateinit var showTreeFragment: ShowTreeFragment
     private val binding : ActivityHomeBinding by lazy { ActivityHomeBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,11 +23,14 @@ class HomeActivity : AppCompatActivity() {
 
         harvestFragment = HarvestFragment.newInstance()
         profileFragment = ProfileFragment.newInstance()
+        treesFragment = TreesFragment.newInstance()
+        showTreeFragment = ShowTreeFragment.newInstance()
 
         binding.navigator.setOnItemSelectedListener { menuItem->
             when(menuItem.itemId){
                 R.id.harvestmenu -> {showFragment(harvestFragment)}
                 R.id.homemenu -> {showFragment(profileFragment)}
+                R.id.treemenu -> {showFragment(showTreeFragment)}
             }
             true
         }

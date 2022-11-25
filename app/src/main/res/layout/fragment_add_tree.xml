@@ -10,12 +10,10 @@
     tools:context=".fragments.TreesFragment">
 
     <ImageView
-        android:id="@+id/top_background_add_tree"
+        style="@style/botBackgroundImageView"
+        android:id="@+id/top_background_show_tree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:scaleType="centerInside"
-        android:src="@drawable/background_inferior"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -23,7 +21,7 @@
         tools:ignore="ImageContrastCheck" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraint_layout_add_tree"
+        android:id="@+id/bar_show_tree"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,21 +44,14 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/principal_container_contraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraint_layout_add_tree">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp">
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toTopOf="@+id/bar_show_tree">
 
         <TextView
             android:id="@+id/title_add_tree"
@@ -160,4 +151,5 @@
             app:layout_constraintTop_toBottomOf="@+id/media_icon_add_tree" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

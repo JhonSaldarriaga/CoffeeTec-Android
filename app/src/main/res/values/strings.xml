@@ -6,4 +6,13 @@
     <string name="add_photo_add_tree">Adjuntar foto...</string>
     <string name="register">Registrar</string>
     <string name="name_hint">Nombre</string>
+    <string name="id_hint">ID</string>
+    <string name="title_show_tree">Datos del cafeto</string>
+
+    <string-array name="tree_sicks">
+        <item>Sick 1</item>
+        <item>Sick 2</item>
+        <item>Sick 3</item>
+    </string-array>
+
 </resources>
