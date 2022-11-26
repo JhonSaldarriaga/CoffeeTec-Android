@@ -70,13 +70,22 @@
                 app:layout_constraintTop_toBottomOf="@+id/placeSensorRow" />
 
             <TextView
-                android:id="@+id/placeSensorRow"
+                android:id="@+id/typeSensorText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
                 android:text="TextView"
                 app:layout_constraintStart_toStartOf="@+id/sensorNameRow"
                 app:layout_constraintTop_toBottomOf="@+id/sensorNameRow" />
+
+            <TextView
+                android:id="@+id/placeSensorRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="TextView"
+                app:layout_constraintStart_toStartOf="@+id/typeSensorText"
+                app:layout_constraintTop_toBottomOf="@+id/typeSensorText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -89,6 +98,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_baseline_wifi_24" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

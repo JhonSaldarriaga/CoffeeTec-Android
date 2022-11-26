@@ -26,25 +26,44 @@ class InfoSensorActivity : AppCompatActivity() {
             changeValues()
         }
 
+        binding.deleteSensorButton.setOnClickListener {
+            Firebase.firestore.collection("sensors").document(sensorId).delete()
+            val intent = Intent(this, HomeActivity::class.java).apply{
+                putExtra("resetSensors", "true")
+            }
+            startActivity(intent)
+        }
+
        binding.backAuxSensorHeader.setOnClickListener {
            finish()
        }
     }
 
     private fun changeValues() {
-        Firebase.firestore.collection("sensors").document(sensorId)
-            .update("name",binding.nameSensorInfoText.text.toString())
 
-        Firebase.firestore.collection("sensors").document(sensorId)
-            .update("state", "inactive")
+        var state: String = binding.stateSensorText.text.toString()
+        if(state.contentEquals ("Activo", true) || state.contentEquals("Inactivo", true)){
 
-        showMsg("Datos cambiados exitosamente")
+            if(binding.nameSensorInfoText.text.toString()!=""){
+                Firebase.firestore.collection("sensors").document(sensorId)
+                    .update("name",binding.nameSensorInfoText.text.toString())
 
-        val intent = Intent(this, HomeActivity::class.java).apply{
-            putExtra("resetSensors", "true")
+                Firebase.firestore.collection("sensors").document(sensorId)
+                    .update("state",  state.lowercase())
+
+                showMsg("Datos cambiados exitosamente")
+
+                val intent = Intent(this, HomeActivity::class.java).apply{
+                    putExtra("resetSensors", "true")
+                }
+                startActivity(intent)
+            }
+
+        }else{
+            showMsg("Estado invalido.El sensor solo puede estar activo o inactivo")
         }
-        startActivity(intent)
     }
+
 
     private fun loadInformation() {
         disableTextFields()
@@ -57,7 +76,7 @@ class InfoSensorActivity : AppCompatActivity() {
                 if(sensorInfo.id !="") {
                     binding.nameSensorInfoText.setText(sensorInfo.name)
                     binding.idSensorInfoText.setText(sensorInfo.id)
-                    binding.stateSensorText.setText(sensorInfo.state)
+                    binding.typeSensorInfoText.setText(sensorInfo.type)
                     binding.coordinatesSensorText.setText(sensorInfo.coordinates)
                     dinamicState(sensorInfo.state)
                 }
@@ -82,13 +101,13 @@ class InfoSensorActivity : AppCompatActivity() {
         val imageResourceEye = resources.getIdentifier("@drawable/ic_baseline_remove_red_eye_24", null, packageName)
         binding.stateSensorImg.visibility = View.VISIBLE
 
-        if(state == "inactive"){
-            binding.stateSensorText.setText("inactivo")
+        if(state == "inactivo"){
             binding.stateSensorImg.setImageResource(imageResourceEx)
         }else{
-            binding.stateSensorText.setText("activo")
             binding.stateSensorImg.setImageResource(imageResourceEye)
         }
+
+        binding.stateSensorText.setText(state)
     }
 
     private fun showMsg(msg: String){

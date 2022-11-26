@@ -1,6 +1,7 @@
 package com.example.coffetec.sensors
 
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.view.View
 import android.widget.ImageView
@@ -23,6 +24,8 @@ class SensorViewHolder(itemView:View): RecyclerView.ViewHolder(itemView) {
     var sensorCoordinates: TextView = itemView.findViewById(R.id.coordinatesSensorRow)
     var sensorState: TextView = itemView.findViewById(R.id.stateSensorRow)
     var constraintLayout: ConstraintLayout = itemView.findViewById(R.id.constraintLayoutRow)
+    var sensorType: TextView = itemView.findViewById(R.id.typeSensorText)
+    var sensorImg: ImageView = itemView.findViewById(R.id.imageStateSensorRow)
 
     init {
         constraintLayout.setOnClickListener {
@@ -36,15 +39,20 @@ class SensorViewHolder(itemView:View): RecyclerView.ViewHolder(itemView) {
         sensorName.setText(sensorBind.name)
         sensorPlace.setText("Ubicación: "+sensorBind.place)
         sensorCoordinates.setText(sensorBind.coordinates)
+        sensorType.setText("Tipo: "+sensorBind.type)
         checkStates(sensorBind.state)
-
     }
 
     private fun checkStates(state:String) {
-        if(state=="inactive"){
+        if(state=="inactivo"){
             sensorState.setText("Inactivo")
+            sensorState.setTextColor(Color.RED)
+            sensorImg.setImageResource(R.drawable.ic_baseline_wifi_off_24)
         }else{
             sensorState.setText("Activo")
+            sensorState.setTextColor(Color.rgb(41,112,18))
+            sensorImg.setImageResource(R.drawable.ic_baseline_wifi_24)
+
         }
     }
 }

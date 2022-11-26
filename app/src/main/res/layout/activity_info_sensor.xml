@@ -105,7 +105,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/headerLayoutInfo"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -115,10 +115,12 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/ic_baseline_arrow_back_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
@@ -134,15 +136,58 @@
         app:layout_constraintStart_toStartOf="@+id/headerLayoutInfo"
         app:layout_constraintTop_toBottomOf="@+id/headerLayoutInfo" />
 
-    <Button
-        android:id="@+id/editInfoSensorButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="26dp"
-        android:background="@drawable/circle_shape"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="@+id/stateLayout"
         app:layout_constraintStart_toStartOf="@+id/stateLayout"
-        app:layout_constraintTop_toBottomOf="@+id/stateLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/stateLayout">
+
+        <Button
+            android:id="@+id/deleteSensorButton"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:background="@drawable/circle_shape"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/editInfoSensorButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/editInfoSensorButton"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle_shape"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/editInfoSensorButton"
+            app:layout_constraintStart_toStartOf="@+id/editInfoSensorButton"
+            app:layout_constraintTop_toTopOf="@+id/editInfoSensorButton"
+            app:srcCompat="@drawable/ic_baseline_save_24" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="100dp"
+            app:layout_constraintBottom_toBottomOf="@+id/deleteSensorButton"
+            app:layout_constraintEnd_toEndOf="@+id/deleteSensorButton"
+            app:layout_constraintStart_toStartOf="@+id/deleteSensorButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_delete_24" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ubicationLayout"
@@ -153,7 +198,7 @@
         android:elevation="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editInfoSensorButton">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
 
         <TextView
             android:id="@+id/ubicationSensorInfoText"
@@ -185,7 +230,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editInfoSensorButton">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -221,16 +266,5 @@
         app:layout_constraintBottom_toBottomOf="@+id/typeSensorInfoText"
         app:layout_constraintStart_toStartOf="@+id/typeSensorInfoText"
         app:layout_constraintTop_toTopOf="@+id/typeSensorInfoText" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="100dp"
-        app:layout_constraintBottom_toBottomOf="@+id/editInfoSensorButton"
-        app:layout_constraintEnd_toEndOf="@+id/editInfoSensorButton"
-        app:layout_constraintStart_toStartOf="@+id/editInfoSensorButton"
-        app:layout_constraintTop_toTopOf="@+id/editInfoSensorButton"
-        app:srcCompat="@drawable/ic_baseline_edit_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
