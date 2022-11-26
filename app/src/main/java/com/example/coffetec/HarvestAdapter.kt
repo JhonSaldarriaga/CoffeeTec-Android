@@ -14,6 +14,7 @@ class HarvestAdapter: RecyclerView.Adapter<HarvestViewHolder>() {
         var inflater = LayoutInflater.from(parent.context)
         val rowView = inflater.inflate(R.layout.harvestrow, parent, false)
         val harvestView = HarvestViewHolder(rowView)
+        harvestView.onClickHarvestListener = onClickHarvestListener
         return harvestView
     }
 

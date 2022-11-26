@@ -7,10 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.coffetec.Harvest
-import com.example.coffetec.HarvestAdapter
-import com.example.coffetec.NewHarvest
-import com.example.coffetec.ShowHarvestActivity
+import com.example.coffetec.*
 import com.example.coffetec.databinding.FragmentHarvestBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
@@ -31,22 +28,23 @@ class HarvestFragment : Fragment(), HarvestAdapter.OnClickHarvestListener {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentHarvestBinding.inflate(inflater, container, false)
-        val view = binding.root
 
         //recrear estado
-        val postRecycler = binding.harvestsRecycler
+        Util.initRecycler(binding.harvestsRecycler, requireActivity(), LinearLayoutManager.VERTICAL,).adapter = adapter
+        /*val postRecycler = binding.harvestsRecycler
 
         postRecycler.setHasFixedSize(true)
         postRecycler.layoutManager = LinearLayoutManager(activity)
-        postRecycler.adapter = adapter
-        
+        postRecycler.adapter = adapter*/
+        adapter.clear()
         loadHarvests()
+        adapter.onClickHarvestListener = this
 
         binding.addHarvest.setOnClickListener {
             val intent = Intent(this.context, NewHarvest::class.java)
             startActivity(intent)
         }
-        return view
+        return binding.root
     }
 
     private fun loadHarvests(){
