@@ -1,9 +1,11 @@
 package com.example.coffetec
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coffetec.fragments.HarvestFragment
+import kotlin.math.log
 
 class HarvestAdapter: RecyclerView.Adapter<HarvestViewHolder>() {
 
@@ -12,7 +14,7 @@ class HarvestAdapter: RecyclerView.Adapter<HarvestViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HarvestViewHolder {
         var inflater = LayoutInflater.from(parent.context)
-        val rowView = inflater.inflate(R.layout.harvestrow, parent, false)
+        val rowView = inflater.inflate(R.layout.harvest_row, parent, false)
         val harvestView = HarvestViewHolder(rowView)
         harvestView.onClickHarvestListener = onClickHarvestListener
         return harvestView
@@ -20,6 +22,8 @@ class HarvestAdapter: RecyclerView.Adapter<HarvestViewHolder>() {
 
     override fun onBindViewHolder(holder: HarvestViewHolder, position: Int) {
         val harvestn = harvests[position]
+        //holder.bindHarvest(harvestn)
+        Log.d(">>>>>>>>>>>>>>>>>>","bind")
         holder.id.text = harvestn.id
         holder.numBag.text = ""+harvestn.numBag
         holder.state.text = harvestn.state
@@ -27,6 +31,7 @@ class HarvestAdapter: RecyclerView.Adapter<HarvestViewHolder>() {
 
     fun addHarvest(harvest:Harvest){
         harvests.add(harvest)
+        notifyItemInserted(harvests.size-1)
     }
 
     override fun getItemCount(): Int {

@@ -40,7 +40,7 @@ class NewHarvest : AppCompatActivity() {
                     }
 
                 val intent = Intent(this, HomeActivity::class.java).apply {
-                    putExtra("newHarvest",true)
+                    putExtra("newHarvest","true")
                     putExtra("harvest", Gson().toJson(harvest))
                 }
                 startActivity(intent)

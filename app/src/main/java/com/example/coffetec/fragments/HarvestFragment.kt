@@ -2,6 +2,7 @@ package com.example.coffetec.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -31,11 +32,6 @@ class HarvestFragment : Fragment(), HarvestAdapter.OnClickHarvestListener {
 
         //recrear estado
         Util.initRecycler(binding.harvestsRecycler, requireActivity(), LinearLayoutManager.VERTICAL,).adapter = adapter
-        /*val postRecycler = binding.harvestsRecycler
-
-        postRecycler.setHasFixedSize(true)
-        postRecycler.layoutManager = LinearLayoutManager(activity)
-        postRecycler.adapter = adapter*/
         adapter.clear()
         loadHarvests()
         adapter.onClickHarvestListener = this
@@ -48,9 +44,11 @@ class HarvestFragment : Fragment(), HarvestAdapter.OnClickHarvestListener {
     }
 
     private fun loadHarvests(){
+        Log.d(">>>>>>>>>>>>>>>>>>","load")
         Firebase.firestore.collection("harvests").get()
             .addOnCompleteListener { harvest->
                 for(i in harvest.result!!){
+                    Log.d(">>>>>>>>>>>",i.toString())
                     adapter.addHarvest(i.toObject(Harvest::class.java))
                 }
             }
