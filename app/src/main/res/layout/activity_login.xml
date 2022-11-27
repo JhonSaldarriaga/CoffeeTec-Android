@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/background_input"
         android:ems="10"
         android:hint="@string/correo"
@@ -48,21 +48,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordSignInET"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        android:background="@drawable/background_input"
         android:ems="10"
         android:hint="@string/contraseña"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        android:paddingStart="5dp"
         android:password="true"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="@+id/emailSignInET"
-        app:layout_constraintStart_toStartOf="@+id/emailSignInET" />
+        app:layout_constraintStart_toStartOf="@+id/emailSignInET"
+        app:passwordToggleEnabled="true">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_input"
+            android:padding="5dp"
+            android:password="true"
+            android:textColor="@color/white"
+            android:textColorHint="#99FFFFFF" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView4"

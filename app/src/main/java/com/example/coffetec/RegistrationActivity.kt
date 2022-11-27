@@ -20,11 +20,11 @@ class RegistrationActivity : AppCompatActivity() {
 
         binding.signUpBtn.setOnClickListener {
             val email = binding.emailSignUpET.text.toString()
-            val pass = binding.passwordSignUpET.text.toString()
+            val pass = binding.passwordSignUpET.editText!!.text.toString()
             if(binding.nameET.text.toString() != "" && binding.houseCampET.text.toString() != "" && binding.documentET.text.toString() != ""
-                && email != "" && binding.phoneET.text.toString() != "" && pass != "" && binding.passwordConfirmET.text.toString() != ""){
+                && email != "" && binding.phoneET.text.toString() != "" && pass != "" && binding.passwordConfirmET.editText!!.text.toString() != ""){
 
-                if(pass == binding.passwordConfirmET.text.toString()){
+                if(pass == binding.passwordConfirmET.editText!!.text.toString()){
                     Firebase.auth.createUserWithEmailAndPassword(email, pass).addOnSuccessListener {
                         Toast.makeText(this, "Cuenta creada exitosamente", Toast.LENGTH_LONG).show()
                     }.addOnFailureListener {

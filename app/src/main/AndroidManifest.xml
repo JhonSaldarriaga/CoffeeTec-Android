@@ -10,21 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CoffeTec">
         <activity
-            android:name=".InfoSensorActivity"
+            android:name=".EditProfileActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".RegistrationSensorActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".EditSensorActivity"
+            android:name=".ProfileActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
