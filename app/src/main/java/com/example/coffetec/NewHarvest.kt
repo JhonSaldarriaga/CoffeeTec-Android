@@ -3,6 +3,7 @@ package com.example.coffetec
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.example.coffetec.databinding.ActivityNewHarvestBinding
 import com.google.firebase.firestore.ktx.firestore
@@ -26,14 +27,14 @@ class NewHarvest : AppCompatActivity() {
 
         binding.btnCreate.setOnClickListener{
 
-            var id: String = UUID.randomUUID().toString()
+            val id: String = UUID.randomUUID().toString()
             val numLump = numLump(id)
             val date = getCurrentDateTime().toString("yyyy/MM/dd")
             //val qr = binding.ivCodigoQR.toString()
             val state = binding.stateSpinner.selectedItem.toString()
 
             if(id!="" && date!="" && state!="") {
-                var harvest = Harvest(id, numLump,date,state)
+                val harvest = Harvest(id, numLump,date,state)
 
                 Firebase.firestore.collection("harvests")
                     .document(id).set(harvest).addOnCompleteListener {
@@ -49,25 +50,30 @@ class NewHarvest : AppCompatActivity() {
                 Toast.makeText(this, "Por favor, rellenar correctamente los campos", Toast.LENGTH_SHORT).show()
             }
         }
+
+        binding.btnCancel.setOnClickListener {
+            finish()
+        }
     }
 
-    fun Date.toString(format: String, locale: Locale = Locale.getDefault()): String {
+    private fun Date.toString(format: String, locale: Locale = Locale.getDefault()): String {
         val formatter = SimpleDateFormat(format, locale)
         return formatter.format(this)
     }
 
-    fun getCurrentDateTime(): Date {
+    private fun getCurrentDateTime(): Date {
         return Calendar.getInstance().time
     }
 
-    fun numLump(id:String): Int{
-        var numBult = 0
+    private fun numLump(id:String): Int{
+        var numLumP = 0
         Firebase.firestore.collection("harvests").document(id).collection("lumps")
-            .get().addOnCompleteListener { lumps->
-                for(i in lumps.result!!){
-                    numBult++
-                }
+            .get().addOnSuccessListener { task->
+            for(doc in task.documents){
+                numLumP++
+                Log.e("_______________________",numLumP.toString())
             }
-        return numBult
+        }
+        return numLumP
     }
 }

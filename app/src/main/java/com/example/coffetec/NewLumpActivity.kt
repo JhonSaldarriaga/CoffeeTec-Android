@@ -28,18 +28,18 @@ class NewLumpActivity : AppCompatActivity() {
         harvestId = intent.extras?.getString("harvestId", "").toString()
 
         binding.btnCreate.setOnClickListener {
-            var id: String = UUID.randomUUID().toString()
-            var weight: String = binding.ETKg.toString()
-            var qr :String = binding.ivCodigoQR.toString()
+            val id: String = UUID.randomUUID().toString()
+            val weight: String = binding.ETKg.toString()
+            val qr :String = binding.ivCodigoQR.toString()
 
             if(weight!="" && qr!=""){
-                var lump = Lump(id,weight,qr)
+                val lump = Lump(id,weight,qr)
                 Firebase.firestore.collection("harvests").document(harvestId)
                     .collection("lumps").document(id).set(lump).addOnCompleteListener {
                         Toast.makeText(this, "Datos registrados exitosamente", Toast.LENGTH_SHORT).show()
                     }
 
-                val intent = Intent(this, ShowHarvestActivity::class.java).apply {
+                val intent = Intent(this, NewHarvest::class.java).apply {
                     putExtra("lumpId",id)
                 }
                 startActivity(intent)
@@ -56,8 +56,8 @@ class NewLumpActivity : AppCompatActivity() {
 
         binding.btnGenerar.setOnClickListener {
             try{
-                var barcodeEncode : BarcodeEncoder = BarcodeEncoder()
-                var bitmap : Bitmap = barcodeEncode.encodeBitmap(
+                val barcodeEncode : BarcodeEncoder = BarcodeEncoder()
+                val bitmap : Bitmap = barcodeEncode.encodeBitmap(
                     binding.etDatos.text.toString(),
                     BarcodeFormat.QR_CODE,
                     250,
