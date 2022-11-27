@@ -25,7 +25,7 @@ class HarvestAdapter: RecyclerView.Adapter<HarvestViewHolder>() {
         //holder.bindHarvest(harvestn)
         Log.d(">>>>>>>>>>>>>>>>>>","bind")
         holder.id.text = harvestn.id
-        holder.numBag.text = ""+harvestn.numBag
+        holder.numLump.text = ""+harvestn.numLump
         holder.state.text = harvestn.state
     }
 

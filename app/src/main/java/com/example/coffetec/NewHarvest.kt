@@ -18,21 +18,26 @@ class NewHarvest : AppCompatActivity() {
 
     private lateinit var binding : ActivityNewHarvestBinding
 
+    private lateinit var lump:Lump
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNewHarvestBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
+        lump = intent.extras?.get("lump") as Lump
+
         binding.btnCreate.setOnClickListener{
+
             var id: String = UUID.randomUUID().toString()
-            val numBul = 0
+            val numLump = numLump(id)
             val date = getCurrentDateTime().toString("yyyy/MM/dd")
-            val qr = binding.ivCodigoQR.toString()
-            val state = binding.stateSpinner.toString()
+            //val qr = binding.ivCodigoQR.toString()
+            val state = binding.stateSpinner.selectedItem.toString()
 
             if(id!="" && date!="" && state!="") {
-                var harvest = Harvest(id,numBul,date,qr,state)
+                var harvest = Harvest(id, numLump,date,state)
 
                 Firebase.firestore.collection("harvests")
                     .document(id).set(harvest).addOnCompleteListener {
@@ -48,27 +53,6 @@ class NewHarvest : AppCompatActivity() {
                 Toast.makeText(this, "Por favor, rellenar correctamente los campos", Toast.LENGTH_SHORT).show()
             }
         }
-
-        binding.btnCancel.setOnClickListener {
-            binding.ivCodigoQR.setImageBitmap(null)
-            binding.etDatos.text.clear()
-            finish()
-        }
-
-        binding.btnGenerar.setOnClickListener {
-            try{
-                var barcodeEncode : BarcodeEncoder = BarcodeEncoder()
-                    var bitmap : Bitmap = barcodeEncode.encodeBitmap(
-                        binding.etDatos.text.toString(),
-                        BarcodeFormat.QR_CODE,
-                        250,
-                        250
-                    )
-                binding.ivCodigoQR.setImageBitmap(bitmap)
-            }catch(e: Exception){
-                e.printStackTrace()
-            }
-        }
     }
 
     fun Date.toString(format: String, locale: Locale = Locale.getDefault()): String {
@@ -78,5 +62,16 @@ class NewHarvest : AppCompatActivity() {
 
     fun getCurrentDateTime(): Date {
         return Calendar.getInstance().time
+    }
+
+    fun numLump(id:String): Int{
+        var numBult = 0
+        Firebase.firestore.collection("harvests").document(id).collection("lumps")
+            .get().addOnCompleteListener { lumps->
+                for(i in lumps.result!!){
+                    numBult++
+                }
+            }
+        return numBult
     }
 }

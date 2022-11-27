@@ -7,6 +7,7 @@ import com.example.coffetec.databinding.ActivityShowHarvestBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
+import com.google.gson.Gson
 
 class ShowHarvestActivity : AppCompatActivity() {
 
@@ -21,15 +22,20 @@ class ShowHarvestActivity : AppCompatActivity() {
 
         harvestId = intent.extras?.getString("idHarvest","").toString()
         loadInfo()
+        disableTF()
 
         binding.btnEdit.setOnClickListener {
-            val intent = Intent(this,EditHarvestActivity::class.java).apply {
-                putExtra("harvest",harvest)
-            }
-            startActivity(intent)
-            finish()
+            Firebase.firestore.collection("harvests").document(harvestId)
+                .update("state",binding.stateSpinner2.selectedItem.toString())
         }
 
+        binding.btnAddLump.setOnClickListener {
+            val intent = Intent(this, NewLumpActivity::class.java).apply {
+                putExtra("harvestId",harvestId)
+                putExtra("harvest", Gson().toJson(harvest))
+            }
+            startActivity(intent)
+        }
     }
 
     private fun loadInfo(){
@@ -39,8 +45,17 @@ class ShowHarvestActivity : AppCompatActivity() {
                 if(harvestInfo.id!=""){
                     binding.idHarvest.setText(harvestInfo.id)
                     binding.dateHarvest.setText(harvestInfo.date)
-                    binding.numBult.setText(harvestInfo.numBag)
+                    binding.numBult.setText(harvestInfo.numLump)
                 }
             }
     }
+
+    private fun disableTF(){
+        binding.idHarvest.setOnKeyListener(null)
+        binding.numBult.setOnKeyListener(null)
+        binding.dateHarvest.setOnKeyListener(null)
+    }
+
+
+
 }

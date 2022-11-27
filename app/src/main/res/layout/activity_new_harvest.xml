@@ -5,47 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <ImageView
-        android:id="@+id/ivCodigoQR"
-        android:layout_width="270dp"
-        android:layout_height="270dp"
-
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/etDatos"
-        android:layout_width="347dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="30dp"
-        android:hint="Datos sobre la cosecha"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivCodigoQR" />
-
-    <Button
-        android:id="@+id/btnGenerar"
-        android:layout_width="238dp"
-        android:layout_height="57dp"
-        android:layout_marginBottom="256dp"
-        android:text="Generar QR"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    tools:context=".NewHarvest">
 
     <Spinner
         android:id="@+id/stateSpinner"
         android:layout_width="239dp"
         android:layout_height="50dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="12dp"
         android:entries="@array/states_spinner"
-        app:layout_constraintStart_toStartOf="@+id/etDatos"
-        app:layout_constraintTop_toBottomOf="@+id/btnGenerar" />
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
         android:id="@+id/btnCancel"
@@ -66,5 +35,26 @@
         android:text="Crear"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="51dp"
+        android:text="Registro de cosecha"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="64dp"
+        android:text="Estado actual de la cosecha"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,8 +24,6 @@ class HarvestFragment : Fragment(), HarvestAdapter.OnClickHarvestListener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-
-
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentHarvestBinding.inflate(inflater, container, false)
@@ -60,7 +58,6 @@ class HarvestFragment : Fragment(), HarvestAdapter.OnClickHarvestListener {
     }
 
     companion object {
-        @JvmStatic
         fun newInstance() = HarvestFragment()
     }
 
