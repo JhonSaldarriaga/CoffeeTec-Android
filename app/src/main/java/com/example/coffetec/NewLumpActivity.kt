@@ -39,9 +39,8 @@ class NewLumpActivity : AppCompatActivity() {
                         Toast.makeText(this, "Datos registrados exitosamente", Toast.LENGTH_SHORT).show()
                     }
 
-                val intent = Intent(this, NewHarvest::class.java).apply {
-                    putExtra("newLump","true")
-                    putExtra("lump", Gson().toJson(lump))
+                val intent = Intent(this, ShowHarvestActivity::class.java).apply {
+                    putExtra("lumpId",id)
                 }
                 startActivity(intent)
             }else {

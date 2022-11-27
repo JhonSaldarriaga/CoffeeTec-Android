@@ -23,7 +23,7 @@
         android:layout_width="347dp"
         android:layout_height="65dp"
         android:layout_marginTop="40dp"
-        android:hint="Datos sobre la cosecha"
+        android:hint="Datos sobre sobre el bulto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivCodigoQR" />

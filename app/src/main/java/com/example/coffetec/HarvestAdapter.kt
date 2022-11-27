@@ -22,11 +22,11 @@ class HarvestAdapter: RecyclerView.Adapter<HarvestViewHolder>() {
 
     override fun onBindViewHolder(holder: HarvestViewHolder, position: Int) {
         val harvestn = harvests[position]
-        //holder.bindHarvest(harvestn)
+        holder.bindHarves(harvestn)
         Log.d(">>>>>>>>>>>>>>>>>>","bind")
-        holder.id.text = harvestn.id
+        /** holder.id.text = harvestn.id
         holder.numLump.text = ""+harvestn.numLump
-        holder.state.text = harvestn.state
+        holder.state.text = harvestn.state**/
     }
 
     fun addHarvest(harvest:Harvest){

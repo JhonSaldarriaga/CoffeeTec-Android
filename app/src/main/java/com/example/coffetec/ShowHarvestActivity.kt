@@ -22,7 +22,6 @@ class ShowHarvestActivity : AppCompatActivity() {
 
         harvestId = intent.extras?.getString("idHarvest","").toString()
         loadInfo()
-        disableTF()
 
         binding.btnEdit.setOnClickListener {
             Firebase.firestore.collection("harvests").document(harvestId)
@@ -39,13 +38,14 @@ class ShowHarvestActivity : AppCompatActivity() {
     }
 
     private fun loadInfo(){
+        disableTF()
         Firebase.firestore.collection("harvests")
             .document(harvestId).get().addOnCompleteListener { harvest->
-                var harvestInfo: Harvest = harvest.result.toObject(Harvest::class.java)!!
+                val harvestInfo: Harvest = harvest.result.toObject(Harvest::class.java)!!
                 if(harvestInfo.id!=""){
                     binding.idHarvest.setText(harvestInfo.id)
                     binding.dateHarvest.setText(harvestInfo.date)
-                    binding.numBult.setText(harvestInfo.numLump)
+                    binding.numBult.setText(harvestInfo.numLump.toString())
                 }
             }
     }

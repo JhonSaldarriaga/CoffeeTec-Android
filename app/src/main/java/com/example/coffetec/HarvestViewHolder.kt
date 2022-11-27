@@ -23,4 +23,11 @@ class HarvestViewHolder(itemView : View): RecyclerView.ViewHolder(itemView) {
             onClickHarvestListener.openInfoHarvest(id)
         }
     }
+
+    fun bindHarves(harvestBind:Harvest){
+        harvest = harvestBind
+        id.setText(harvestBind.id)
+        numLump.setText(""+harvestBind.numLump)
+        state.setText(harvestBind.state)
+    }
 }

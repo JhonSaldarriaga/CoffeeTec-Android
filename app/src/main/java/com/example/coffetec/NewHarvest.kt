@@ -1,15 +1,12 @@
 package com.example.coffetec
 
 import android.content.Intent
-import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.coffetec.databinding.ActivityNewHarvestBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.google.zxing.BarcodeFormat
-import com.journeyapps.barcodescanner.BarcodeEncoder
 import java.text.SimpleDateFormat
 import com.google.gson.Gson
 import java.util.*
@@ -17,8 +14,7 @@ import java.util.*
 class NewHarvest : AppCompatActivity() {
 
     private lateinit var binding : ActivityNewHarvestBinding
-
-    private lateinit var lump:Lump
+    private lateinit var lumpId:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +22,7 @@ class NewHarvest : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        lump = intent.extras?.get("lump") as Lump
+        lumpId = intent.extras?.getString("lumpId","").toString()
 
         binding.btnCreate.setOnClickListener{
 
