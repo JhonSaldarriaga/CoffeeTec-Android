@@ -55,7 +55,8 @@ class EditProfileActivity : AppCompatActivity() {
                         binding.houseCampEditProfileET.text.toString(),
                         user.document,
                         user.email,
-                        binding.phoneEditProfileET.text.toString()
+                        binding.phoneEditProfileET.text.toString(),
+                        user.uriProfile
                     )
                     Firebase.firestore.collection("users").document(it).set(newUser)
                 }

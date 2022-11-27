@@ -1,6 +1,7 @@
 package com.example.coffetec
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
@@ -12,6 +13,7 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -32,6 +34,12 @@ class ProfileActivity : AppCompatActivity() {
             binding.phoneTxt.text = user.phone
             binding.houseCampTxt.text = user.houseCamp
             binding.emailTxt.text = user.email
+            withContext(Dispatchers.Main){
+                val uriImage = Uri.parse(user.uriProfile)
+                uriImage.let {
+                    binding.imgProfile.setImageURI(uriImage)
+                }
+            }
         }
 
         binding.editProfileButton.setOnClickListener {

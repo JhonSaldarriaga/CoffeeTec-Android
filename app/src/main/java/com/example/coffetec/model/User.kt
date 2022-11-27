@@ -6,5 +6,6 @@ data class User (
     var houseCamp:String="",
     var document:String="",
     var email:String="",
-    var phone:String=""
+    var phone:String="",
+    var uriProfile:String=""
 )
