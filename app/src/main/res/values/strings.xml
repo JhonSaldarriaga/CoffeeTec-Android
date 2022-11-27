@@ -23,4 +23,6 @@
     <string name="no_cuenta">¿No tienes cuenta?</string>
     <string name="perfil">Perfil</string>
     <string name="edit">Edita tu perfil</string>
+    <string name="no_guardar">¿Desea salir sin guardar?</string>
+    <string name="txt_guardar">Recuerde que si sale en estos momentos se perderan los cambios realizados.</string>
 </resources>

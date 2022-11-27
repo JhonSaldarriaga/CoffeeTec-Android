@@ -62,13 +62,14 @@
         app:layout_constraintEnd_toEndOf="@+id/emailSignInET"
         app:layout_constraintStart_toStartOf="@+id/emailSignInET"
         app:passwordToggleEnabled="true">
+
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/background_input"
             android:padding="5dp"
             android:password="true"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textColorHint="#99FFFFFF" />
     </com.google.android.material.textfield.TextInputLayout>
 
