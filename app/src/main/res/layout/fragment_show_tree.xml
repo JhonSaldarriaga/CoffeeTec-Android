@@ -10,6 +10,7 @@
         android:id="@+id/title_show_tree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/poppins_bold"
         android:text="@string/title_show_tree"
         android:textColor="@color/brown"
@@ -69,6 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
+            android:enabled="false"
             android:hint="@string/id_hint"
             app:helperText="ID del cafeto"
             app:layout_constraintEnd_toEndOf="parent"
@@ -133,6 +135,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="24dp"
+            android:enabled="false"
             app:helperText="Fecha del cafeto"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -147,81 +150,54 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/sensor_id_text_layout_show_tree"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/tree_state_spinner_layout_show_tree"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="24dp"
-            app:helperText="ID del sensor"
+            app:helperText="Estado del cafeto"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/date_edit_text_layout_show_tree"
-            app:startIconDrawable="@drawable/ic_baseline_sensors_24">
+            app:layout_constraintTop_toBottomOf="@+id/date_edit_text_layout_show_tree">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/sentor_id_text_show_tree"
+            <AutoCompleteTextView
+                android:id="@+id/tree_state_spinner_show_tree"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
-
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:inputType="none"
+                tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
-
-        <TextView
-            android:id="@+id/sensor_state_connect_show_tree"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/poppins_bold"
-            android:text="@string/state_connect"
-            android:textColor="@color/green"
-            app:layout_constraintStart_toStartOf="@+id/sensor_id_text_layout_show_tree"
-            app:layout_constraintTop_toBottomOf="@+id/sensor_id_text_layout_show_tree"
-            tools:visibility="visible" />
-
-        <TextView
-            android:id="@+id/sensor_state_disconnect_show_tree"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/poppins_bold"
-            android:text="@string/state_disconnect"
-            android:textColor="@color/brown"
-            app:layout_constraintStart_toStartOf="@+id/sensor_id_text_layout_show_tree"
-            app:layout_constraintTop_toBottomOf="@+id/sensor_id_text_layout_show_tree"
-            tools:visibility="invisible" />
 
         <ImageView
             android:id="@+id/edit_btn_show_tree"
             style="@style/imageGreenButton"
             android:layout_marginTop="32dp"
             android:src="@drawable/ic_outline_edit_24"
-            app:layout_constraintEnd_toEndOf="@+id/sensor_id_text_layout_show_tree"
-            app:layout_constraintStart_toStartOf="@+id/sensor_id_text_layout_show_tree"
-            app:layout_constraintTop_toBottomOf="@+id/sensor_id_text_layout_show_tree" />
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="@+id/tree_state_spinner_layout_show_tree"
+            app:layout_constraintStart_toStartOf="@+id/tree_state_spinner_layout_show_tree"
+            app:layout_constraintTop_toBottomOf="@+id/tree_state_spinner_layout_show_tree" />
 
         <ImageView
             android:id="@+id/cancel_edit_btn_show_tree"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginTop="32dp"
             android:src="@drawable/ic_baseline_cancel_24"
             app:layout_constraintEnd_toStartOf="@+id/edit_btn_show_tree"
-            app:layout_constraintStart_toStartOf="@+id/sensor_id_text_layout_show_tree"
-            app:layout_constraintTop_toBottomOf="@+id/sensor_id_text_layout_show_tree" />
+            app:layout_constraintStart_toStartOf="@+id/tree_state_spinner_layout_show_tree"
+            app:layout_constraintTop_toTopOf="@+id/edit_btn_show_tree" />
 
         <ImageView
             android:id="@+id/confirm_edit_btn_show_tree"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginTop="32dp"
             android:src="@drawable/ic_round_check_circle_24"
-            app:layout_constraintEnd_toEndOf="@+id/sensor_id_text_layout_show_tree"
+            app:layout_constraintEnd_toEndOf="@+id/tree_state_spinner_layout_show_tree"
             app:layout_constraintStart_toEndOf="@+id/edit_btn_show_tree"
-            app:layout_constraintTop_toBottomOf="@+id/sensor_id_text_layout_show_tree" />
+            app:layout_constraintTop_toTopOf="@+id/edit_btn_show_tree" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
