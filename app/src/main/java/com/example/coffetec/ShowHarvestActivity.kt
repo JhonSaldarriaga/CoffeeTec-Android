@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import com.example.coffetec.databinding.ActivityShowHarvestBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
@@ -26,6 +27,13 @@ class ShowHarvestActivity : AppCompatActivity() {
         binding.btnEdit.setOnClickListener {
             Firebase.firestore.collection("harvests").document(harvestId)
                 .update("state",binding.stateSpinner2.selectedItem.toString())
+                .addOnCompleteListener {
+                    Toast.makeText(this, "Datos actualizados exitosamente", Toast.LENGTH_SHORT).show()
+                }
+            val intent = Intent(this, HomeActivity::class.java).apply{
+                putExtra("harvestReload", "true")
+            }
+            startActivity(intent)
         }
 
         binding.btnAddLump.setOnClickListener {

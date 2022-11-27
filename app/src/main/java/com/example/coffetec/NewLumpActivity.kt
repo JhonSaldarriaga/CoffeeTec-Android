@@ -29,13 +29,13 @@ class NewLumpActivity : AppCompatActivity() {
         harvestId = intent.extras?.getString("harvestId", "").toString()
 
         binding.btnCreate.setOnClickListener {
+
             var id: String = UUID.randomUUID().toString()
             var weight: String = binding.ETKg.text.toString()
             var qr :String = binding.ivCodigoQR.toString()
 
             if(weight!="" && qr!=""){
-                var lump = Lump(id,weight,qr)
-
+                val lump = Lump(id,weight,qr)
                 Firebase.firestore.collection("harvests").document(harvestId)
                     .collection("lumps").document(id).set(lump).addOnCompleteListener {
 
@@ -48,6 +48,7 @@ class NewLumpActivity : AppCompatActivity() {
                                         val intent = Intent(this, ShowHarvestActivity::class.java).apply {
                                             putExtra("resetHarvest","true")
                                             putExtra("idHarvest",harvestId)
+                                            putExtra("lumpId",id)
                                         }
                                         Toast.makeText(this, "Datos registrados exitosamente", Toast.LENGTH_SHORT).show()
                                         finish()
@@ -55,6 +56,7 @@ class NewLumpActivity : AppCompatActivity() {
                                     }
                             }
                     }
+
             }else {
                 Toast.makeText(this, "Por favor, rellenar correctamente los campos", Toast.LENGTH_SHORT).show()
             }
@@ -69,8 +71,8 @@ class NewLumpActivity : AppCompatActivity() {
         /**
         binding.btnGenerar.setOnClickListener {
             try{
-                var barcodeEncode : BarcodeEncoder = BarcodeEncoder()
-                var bitmap : Bitmap = barcodeEncode.encodeBitmap(
+                val barcodeEncode : BarcodeEncoder = BarcodeEncoder()
+                val bitmap : Bitmap = barcodeEncode.encodeBitmap(
                     binding.etDatos.text.toString(),
                     BarcodeFormat.QR_CODE,
                     250,
