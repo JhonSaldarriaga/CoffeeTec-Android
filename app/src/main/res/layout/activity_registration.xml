@@ -15,9 +15,9 @@
         android:fontFamily="@font/poppins_bold"
         android:text="@string/registro"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName4"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+        app:layout_constraintEnd_toEndOf="@+id/passwordConfirmET"
+        app:layout_constraintStart_toStartOf="@+id/passwordConfirmET"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -74,21 +74,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/background_input"
-        android:ems="10"
-        android:hint="@string/foto"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:paddingStart="5dp"
-        app:layout_constraintEnd_toEndOf="@+id/passwordConfirmET"
-        app:layout_constraintStart_toStartOf="@+id/passwordConfirmET"
-        app:layout_constraintTop_toBottomOf="@+id/passwordConfirmET" />
-
-    <EditText
         android:id="@+id/houseCampET"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -113,7 +98,7 @@
         android:background="@drawable/background_input"
         android:ems="10"
         android:hint="@string/doc"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:minHeight="48dp"
         android:paddingStart="5dp"
         app:layout_constraintEnd_toEndOf="@+id/houseCampET"
@@ -143,7 +128,7 @@
         android:background="@drawable/background_input"
         android:ems="10"
         android:hint="@string/tel"
-        android:inputType="textPersonName"
+        android:inputType="phone"
         android:minHeight="48dp"
         android:paddingStart="5dp"
         app:layout_constraintEnd_toEndOf="@+id/emailSignUpET"
@@ -229,4 +214,46 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView9"
         app:layout_constraintTop_toTopOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="@string/foto_perfil"
+        android:textColor="@color/green"
+        app:layout_constraintBottom_toBottomOf="@+id/button2"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/passwordConfirmET"
+        app:layout_constraintTop_toTopOf="@+id/button2" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/background_btn2"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Camara"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/button3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/passwordConfirmET" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/background_btn2"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Galeria"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="@+id/passwordConfirmET"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintTop_toTopOf="@+id/button2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

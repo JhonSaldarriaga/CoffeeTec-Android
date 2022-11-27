@@ -30,10 +30,10 @@ class RegistrationActivity : AppCompatActivity() {
                 if(pass == binding.passwordConfirmET.editText!!.text.toString()){
                     Firebase.auth.createUserWithEmailAndPassword(email, pass).addOnSuccessListener {
                         Toast.makeText(this, "Cuenta creada exitosamente", Toast.LENGTH_LONG).show()
+                        registerUserData()
                     }.addOnFailureListener {
                         Toast.makeText(this, "Algo fallo: ${it.message}", Toast.LENGTH_LONG).show()
                     }
-                    registerUserData()
                 }else{
                     Toast.makeText(this, "Los campos de contraseña deben coincidir", Toast.LENGTH_LONG).show()
                 }
