@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import androidx.core.text.set
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import com.example.coffetec.R
@@ -17,24 +16,24 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class ShowTreeFragment : Fragment() {
-
     // [0] -> DISEASES
     // [1] -> STATES
     private var spinnersInFragment = listOf("DISEASES","STATES")
-    var listener: Listener? = null
-    var tree: Tree? = null
     private var _binding : FragmentShowTreeBinding? = null
     private val binding get() = _binding!!
+    lateinit var listener: Listener
+    lateinit var tree: Tree
 
     override fun onResume() {
         super.onResume()
         loadSpinners()
+        loadTreeInformation()
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentShowTreeBinding.inflate(inflater,container,false)
         loadSpinners()
         loadState(false)
@@ -54,15 +53,15 @@ class ShowTreeFragment : Fragment() {
     }
 
     private fun setButtonsListeners(){
-        binding.backBtnShowTree.setOnClickListener{ listener?.onBackButtonShowTreeFragment() }
+        binding.backBtnShowTree.setOnClickListener{ listener.onBackButtonShowTreeFragment() }
         binding.editBtnShowTree.setOnClickListener { loadState(true) }
         binding.confirmEditBtnShowTree.setOnClickListener {
             loadState(false)
-            tree?.name = binding.nameEditTextShowTree.text.toString()
-            tree?.disease = binding.sickSpinnerShowTree.text.toString()
-            tree?.state = binding.treeStateSpinnerShowTree.text.toString()
-            Log.e(">>>","${tree?.name}, ${tree?.disease}, ${tree?.state}")
-            listener?.updateTreeInfo(tree!!)
+            tree.name = binding.nameEditTextShowTree.text.toString()
+            tree.disease = binding.sickSpinnerShowTree.text.toString()
+            tree.state = binding.treeStateSpinnerShowTree.text.toString()
+            Log.e(">>>","${tree.name}, ${tree.disease}, ${tree.state}")
+            listener.updateTreeInfo(tree)
         }
         binding.cancelEditBtnShowTree.setOnClickListener {
             loadState(false)
@@ -71,12 +70,13 @@ class ShowTreeFragment : Fragment() {
     }
 
     private fun loadTreeInformation(){
-        binding.idEditTextShowTree.setText(tree?.id)
-        setSelectionSpinner(tree!!.disease, 0)
-        binding.nameEditTextShowTree.setText(tree?.name)
-        binding.dateEditTextShowTree.setText(tree?.date)
-        setSelectionSpinner(tree!!.state, 1)
-        binding.locationTextShowTree.text = "LAT: ${tree?.latitude}, LON: ${tree?.longitude}"
+        Log.e(">>>", "Soy el fragment y voy a cargar a ${tree.name}")
+        binding.idEditTextShowTree.setText(tree.id)
+        setSelectionSpinner(tree.disease, 0)
+        binding.nameEditTextShowTree.setText(tree.name)
+        binding.dateEditTextShowTree.setText(tree.date)
+        setSelectionSpinner(tree.state, 1)
+        binding.locationTextShowTree.text = "LAT: ${tree.latitude}, LON: ${tree.longitude}"
     }
 
     // SPINNER FUNCTIONS ->

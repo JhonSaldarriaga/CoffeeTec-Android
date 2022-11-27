@@ -11,8 +11,9 @@
     <string name="title_show_tree">Datos del cafeto</string>
     <string name="state_connect">Conectado</string>
     <string name="state_disconnect">Desconectado</string>
-    <string name="location">Ubicación</string>
+    <string name="location">Ubicación:</string>
     <string name="successfull_update">Se han realizado los cambios con exito!</string>
+    <string name="state_title">Estado:</string>
     <string-array name="tree_sicks">
         <item>Roya</item>
         <item>Mancha de hierro</item>
@@ -20,12 +21,12 @@
         <item>Mal rosado</item>
         <item>Ojo de gallo</item>
         <item>Mal del talluelo</item>
+        <item>No</item>
     </string-array>
     <string-array name="tree_states">
         <item>Enfermo</item>
         <item>Talado</item>
         <item>Recuperado</item>
     </string-array>
-
 
 </resources>
