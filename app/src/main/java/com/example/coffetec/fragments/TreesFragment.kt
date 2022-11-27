@@ -16,7 +16,8 @@ import com.example.coffetec.recycler.TreesViewHolder
 
 class TreesFragment : Fragment() {
 
-    var loadState : Boolean = true
+    lateinit var listener: Listener
+    private var loadState : Boolean = true
     private var _binding: FragmentTreesBinding? = null
     private val binding get() = _binding!!
 
@@ -31,7 +32,10 @@ class TreesFragment : Fragment() {
     ): View? {
         _binding = FragmentTreesBinding.inflate(inflater,container,false)
         binding.progressBarTrees.isVisible = loadState
-        if(!loadState) initRecycler()
+        if(!loadState) {
+            initButtons()
+            initRecycler()
+        }
         return binding.root
     }
 
@@ -41,6 +45,10 @@ class TreesFragment : Fragment() {
             binding.progressBarTrees.isVisible = loadState
             initRecycler()
         }
+    }
+
+    private fun initButtons(){
+        binding.addTreeButtonTrees.setOnClickListener { listener.onClickAddTreeButton() }
     }
 
     private fun initRecycler(){
@@ -65,5 +73,9 @@ class TreesFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    interface Listener{
+        fun onClickAddTreeButton()
     }
 }

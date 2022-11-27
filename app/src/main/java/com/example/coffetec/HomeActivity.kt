@@ -6,20 +6,18 @@ import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.coffetec.databinding.ActivityHomeBinding
-import com.example.coffetec.fragments.HarvestFragment
-import com.example.coffetec.fragments.ProfileFragment
-import com.example.coffetec.fragments.ShowTreeFragment
-import com.example.coffetec.fragments.TreesFragment
+import com.example.coffetec.fragments.*
 import com.example.coffetec.model.Tree
 import com.example.coffetec.recycler.TreesViewHolder
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class HomeActivity : AppCompatActivity(), TreesViewHolder.Listener, ShowTreeFragment.Listener {
+class HomeActivity : AppCompatActivity(), TreesFragment.Listener, TreesViewHolder.Listener, ShowTreeFragment.Listener {
 
     private lateinit var harvestFragment: HarvestFragment
     private lateinit var profileFragment : ProfileFragment
     private lateinit var treesFragment: TreesFragment
+    private lateinit var addTreesFragment: AddTreeFragment
     private lateinit var showTreeFragment: ShowTreeFragment
     private val binding : ActivityHomeBinding by lazy { ActivityHomeBinding.inflate(layoutInflater) }
 
@@ -32,10 +30,13 @@ class HomeActivity : AppCompatActivity(), TreesViewHolder.Listener, ShowTreeFrag
 
         //trees_section fragments
         treesFragment = TreesFragment.newInstance()
+        treesFragment.listener = this
         treesFragment.listenerViewHolder = this
-        loadCafetos()
+        addTreesFragment = AddTreeFragment.newInstance()
         showTreeFragment = ShowTreeFragment.newInstance()
         showTreeFragment.listener = this
+
+        loadTrees()
 
         binding.navigator.setOnItemSelectedListener { menuItem->
             when(menuItem.itemId){
@@ -47,9 +48,10 @@ class HomeActivity : AppCompatActivity(), TreesViewHolder.Listener, ShowTreeFrag
         }
     }
 
-    private fun loadCafetos(){
+    private fun loadTrees(){
         val trees = ArrayList<Tree>()
-        Firebase.firestore.collection("trees").get().addOnCompleteListener{ task ->
+        Firebase.firestore.collection("trees").whereEqualTo("state", resources.getStringArray(R.array.tree_states)[0]).get()
+            .addOnCompleteListener{ task ->
             for(document in task.result!!) {
                 val treeFound = document.toObject(Tree::class.java)
                 trees.add(treeFound)
@@ -66,6 +68,7 @@ class HomeActivity : AppCompatActivity(), TreesViewHolder.Listener, ShowTreeFrag
     }
 
     // OBSERVER!!!!
+    override fun onClickAddTreeButton() { showFragment(addTreesFragment) }
     override fun onClickShowTree(tree: Tree) {
         showTreeFragment.tree = tree
         Log.e(">>>","Estoy en el home y recibi a: ${tree.name}")
