@@ -65,6 +65,10 @@ class NewHarvest : AppCompatActivity() {
         return Calendar.getInstance().time
     }
 
+    override fun onBackPressed() {
+        finish()
+    }
+
     private fun numLump(id:String): Int{
         var numLumP = 0
         Firebase.firestore.collection("harvests").document(id).collection("lumps")
