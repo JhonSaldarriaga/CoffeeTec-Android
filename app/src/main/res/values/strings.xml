@@ -9,7 +9,8 @@
     <string name="id_hint">ID</string>
     <string name="date_hint">Fecha</string>
     <string name="title_show_tree">Datos del cafeto</string>
-
+    <string name="state_connect">Conectado</string>
+    <string name="state_disconnect">Desconectado</string>
     <string-array name="tree_sicks">
         <item>Sick 1</item>
         <item>Sick 2</item>
