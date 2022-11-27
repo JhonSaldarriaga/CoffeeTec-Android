@@ -17,13 +17,13 @@
         android:text="@string/nombre"
         android:textColor="@color/green"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/textView12"
+        app:layout_constraintEnd_toStartOf="@+id/nameTxt"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/nameTxt"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
@@ -46,7 +46,7 @@
         android:text="@string/cedula"
         android:textColor="@color/green"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/textView10"
+        app:layout_constraintEnd_toStartOf="@+id/documentTxt"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/textView15"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
@@ -61,20 +61,20 @@
         android:text="@string/finca1"
         android:textColor="@color/green"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/textView11"
+        app:layout_constraintEnd_toStartOf="@+id/houseCampTxt"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/textView17"
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/houseCampTxt"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:text="TextView"
         android:textColor="@color/green"
         app:layout_constraintBottom_toBottomOf="@+id/textView18"
-        app:layout_constraintEnd_toEndOf="@+id/textView14"
+        app:layout_constraintEnd_toEndOf="@+id/phoneTxt"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView18"
         app:layout_constraintTop_toTopOf="@+id/textView18" />
@@ -89,7 +89,7 @@
         android:text="@string/correo1"
         android:textColor="@color/green"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/textView7"
+        app:layout_constraintEnd_toStartOf="@+id/emailTxt"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/textView18"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
@@ -104,7 +104,7 @@
         android:text="@string/tel1"
         android:textColor="@color/green"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/textView14"
+        app:layout_constraintEnd_toStartOf="@+id/phoneTxt"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/textView16"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
@@ -119,7 +119,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView18">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
+            android:id="@+id/editProfileButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="48dp"
@@ -133,40 +133,40 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/phoneTxt"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:text="TextView"
         android:textColor="@color/green"
         app:layout_constraintBottom_toBottomOf="@+id/textView17"
-        app:layout_constraintEnd_toEndOf="@+id/textView10"
+        app:layout_constraintEnd_toEndOf="@+id/documentTxt"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView17"
         app:layout_constraintTop_toTopOf="@+id/textView17" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/emailTxt"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:text="TextView"
         android:textColor="@color/green"
         app:layout_constraintBottom_toBottomOf="@+id/textView19"
-        app:layout_constraintEnd_toEndOf="@+id/textView11"
+        app:layout_constraintEnd_toEndOf="@+id/houseCampTxt"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView19"
         app:layout_constraintTop_toTopOf="@+id/textView19" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/documentTxt"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:text="TextView"
         android:textColor="@color/green"
         app:layout_constraintBottom_toBottomOf="@+id/textView16"
-        app:layout_constraintEnd_toEndOf="@+id/textView12"
+        app:layout_constraintEnd_toEndOf="@+id/nameTxt"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView16"
         app:layout_constraintTop_toTopOf="@+id/textView16" />

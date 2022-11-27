@@ -3,9 +3,12 @@ package com.example.coffetec
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.example.coffetec.databinding.ActivityRegistrationBinding
+import com.example.coffetec.model.User
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class RegistrationActivity : AppCompatActivity() {
@@ -30,6 +33,7 @@ class RegistrationActivity : AppCompatActivity() {
                     }.addOnFailureListener {
                         Toast.makeText(this, "Algo fallo: ${it.message}", Toast.LENGTH_LONG).show()
                     }
+                    registerUserData()
                 }else{
                     Toast.makeText(this, "Los campos de contraseña deben coincidir", Toast.LENGTH_LONG).show()
                 }
@@ -49,5 +53,25 @@ class RegistrationActivity : AppCompatActivity() {
             finish()
         }
 
+    }
+
+    private fun registerUserData() {
+        val uid = Firebase.auth.currentUser?.uid
+        Log.e(
+            "<--<<<","${uid}"
+        )
+        uid?.let {
+            val user = User(
+                it,
+                binding.nameET.text.toString(),
+                binding.houseCampET.text.toString(),
+                binding.documentET.text.toString(),
+                binding.emailSignUpET.text.toString(),
+                binding.phoneET.text.toString()
+            )
+            Firebase.firestore.collection("users").document(it).set(user).addOnSuccessListener {
+                startActivity(Intent(this, LoginActivity::class.java))
+            }
+        }
     }
 }

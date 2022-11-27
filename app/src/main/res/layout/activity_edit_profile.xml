@@ -7,7 +7,7 @@
     tools:context=".ProfileActivity">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
+        android:id="@+id/cameraButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
@@ -15,7 +15,8 @@
         android:src="@drawable/camera"
         app:backgroundTint="@color/orangeFloatButton"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="@+id/textView13" />
+        app:layout_constraintEnd_toEndOf="@+id/textView13"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/textView15"
@@ -29,14 +30,14 @@
         android:textColor="@color/green"
         android:textStyle="bold"
         app:flow_verticalAlign="center"
-        app:layout_constraintBottom_toBottomOf="@+id/textView12"
-        app:layout_constraintEnd_toStartOf="@+id/textView12"
+        app:layout_constraintBottom_toBottomOf="@+id/nameEditProfileET"
+        app:layout_constraintEnd_toStartOf="@+id/nameEditProfileET"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <EditText
-        android:id="@+id/textView12"
+        android:id="@+id/nameEditProfileET"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
@@ -44,12 +45,12 @@
         android:background="@drawable/background_input"
         android:minHeight="48dp"
         android:paddingStart="5dp"
-        android:text="TextView"
         android:textColor="@color/brown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/textView18"
@@ -61,26 +62,26 @@
         android:textAlignment="textStart"
         android:textColor="@color/green"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/textView11"
-        app:layout_constraintEnd_toStartOf="@+id/textView11"
+        app:layout_constraintBottom_toBottomOf="@+id/houseCampEditProfileET"
+        app:layout_constraintEnd_toStartOf="@+id/houseCampEditProfileET"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/textView17"
-        app:layout_constraintTop_toTopOf="@+id/textView11" />
+        app:layout_constraintTop_toTopOf="@+id/houseCampEditProfileET" />
 
     <EditText
-        android:id="@+id/textView11"
+        android:id="@+id/houseCampEditProfileET"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:background="@drawable/background_input"
         android:minHeight="48dp"
         android:paddingStart="5dp"
-        android:text="TextView"
         android:textColor="@color/brown"
-        app:layout_constraintEnd_toEndOf="@+id/textView14"
+        app:layout_constraintEnd_toEndOf="@+id/phoneEditProfileET"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintTop_toBottomOf="@+id/phoneEditProfileET"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/textView17"
@@ -92,11 +93,11 @@
         android:text="@string/tel1"
         android:textColor="@color/green"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/textView14"
-        app:layout_constraintEnd_toStartOf="@+id/textView14"
+        app:layout_constraintBottom_toBottomOf="@+id/phoneEditProfileET"
+        app:layout_constraintEnd_toStartOf="@+id/phoneEditProfileET"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/textView15"
-        app:layout_constraintTop_toTopOf="@+id/textView14" />
+        app:layout_constraintTop_toTopOf="@+id/phoneEditProfileET" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
@@ -106,10 +107,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14">
+        app:layout_constraintTop_toBottomOf="@+id/phoneEditProfileET">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
+            android:id="@+id/saveBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="48dp"
@@ -123,19 +124,19 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <EditText
-        android:id="@+id/textView14"
+        android:id="@+id/phoneEditProfileET"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:background="@drawable/background_input"
         android:minHeight="48dp"
         android:paddingStart="5dp"
-        android:text="TextView"
         android:textColor="@color/brown"
-        app:layout_constraintEnd_toEndOf="@+id/textView12"
+        app:layout_constraintEnd_toEndOf="@+id/nameEditProfileET"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView17"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/nameEditProfileET"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageView2"
@@ -151,17 +152,16 @@
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_bold"
         android:text="@string/edit"
         android:textColor="@color/brown"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backBtnProfile" />
+        app:layout_constraintTop_toBottomOf="@+id/backBtnEditProfile" />
 
     <Button
-        android:id="@+id/backBtnProfile"
+        android:id="@+id/backBtnEditProfile"
         android:layout_width="38dp"
         android:layout_height="38dp"
         android:layout_marginStart="24dp"
@@ -169,5 +169,6 @@
         android:background="@drawable/btn_to_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
