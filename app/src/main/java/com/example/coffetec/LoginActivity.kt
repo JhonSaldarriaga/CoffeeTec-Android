@@ -24,7 +24,7 @@ class LoginActivity : AppCompatActivity() {
                     binding.emailSignInET.text.toString(),
                     binding.passwordSignInET.editText!!.text.toString()
                 ).addOnSuccessListener {
-                    startActivity(Intent(this,HomeActivity::class.java))
+                    startActivity(Intent(this,ProfileActivity::class.java))
                     finish()
                 }.addOnFailureListener{
                     Toast.makeText(this,it.message, Toast.LENGTH_LONG).show()
