@@ -6,6 +6,49 @@
     android:layout_height="match_parent"
     tools:context=".ShowHarvestActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/background_inferior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numBult">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Datos de la cosecha"
+        android:textColor="@color/brown"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/headerLayoutInfo"
+        app:layout_constraintStart_toStartOf="@+id/headerLayoutInfo"
+        app:layout_constraintTop_toBottomOf="@+id/headerLayoutInfo" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerLayoutInfo"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/ic_baseline_arrow_back_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <Spinner
         android:id="@+id/stateSpinner2"
         android:layout_width="239dp"
@@ -15,35 +58,44 @@
         app:layout_constraintStart_toStartOf="@+id/dateHarvest"
         app:layout_constraintTop_toBottomOf="@+id/dateHarvest" />
 
-    <TextView
+    <EditText
         android:id="@+id/idHarvest"
-        android:layout_width="0dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="108dp"
-        android:layout_marginEnd="32dp"
-        android:text="ID"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/background_input"
+        android:editable="false"
+        android:ems="10"
+        android:hint="ID:"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:paddingStart="20dp"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
         android:id="@+id/dateHarvest"
-        android:layout_width="181dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="20dp"
-        android:text="Fecha"
+        android:layout_width="300dp"
+        android:layout_height="45sp"
+        android:background="@drawable/background_input"
+        android:paddingStart="20dp"
+        android:text="Fecha :"
+        android:textAlignment="textStart"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/idHarvest"
         app:layout_constraintStart_toStartOf="@+id/idHarvest"
-        app:layout_constraintTop_toBottomOf="@+id/idHarvest" />
+        tools:layout_editor_absoluteY="234dp" />
 
     <TextView
         android:id="@+id/numBult"
-        android:layout_width="181dp"
-        android:layout_height="37dp"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
         android:layout_marginTop="24dp"
-        android:text="Numero de bultos"
+        android:background="@drawable/background_input"
+        android:paddingStart="20dp"
+        android:text="Numero de bultos:"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/stateSpinner2"
         app:layout_constraintTop_toBottomOf="@+id/stateSpinner2" />
@@ -52,23 +104,23 @@
         android:id="@+id/btnEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
         android:layout_marginTop="160dp"
-        android:layout_marginEnd="34dp"
+        android:background="@drawable/background_btn"
+        android:fontFamily="@font/poppins_bold"
         android:text="Actualizar datos"
-        app:layout_constraintEnd_toStartOf="@+id/btnAddLump"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/numBult"
         app:layout_constraintTop_toBottomOf="@+id/numBult" />
 
     <Button
         android:id="@+id/btnAddLump"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
         android:layout_marginTop="160dp"
-        android:layout_marginEnd="40dp"
+        android:background="@drawable/background_btn"
+        android:fontFamily="@font/poppins_bold"
         android:text="Añadir bulto"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnEdit"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/numBult"
         app:layout_constraintTop_toBottomOf="@+id/numBult" />
 </androidx.constraintlayout.widget.ConstraintLayout>

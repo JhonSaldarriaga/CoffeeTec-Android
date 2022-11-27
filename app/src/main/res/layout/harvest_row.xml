@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
-        android:background="@drawable/ic_launcher_foreground"
+        android:background="@drawable/harvest_row_shape"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -31,7 +31,7 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="TextView"
-                android:textColor="@color/black"
+                android:textColor="@color/green"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/textView30"
                 app:layout_constraintStart_toEndOf="@+id/textView30"
@@ -57,6 +57,7 @@
                 android:layout_marginStart="10dp"
                 android:fontFamily="sans-serif"
                 android:text="TextView"
+                android:textColor="@color/green"
                 app:layout_constraintBottom_toBottomOf="@+id/textViewBult"
                 app:layout_constraintStart_toEndOf="@+id/textViewBult" />
 
@@ -64,9 +65,9 @@
                 android:id="@+id/idHarvestRow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
+                android:fontFamily="@font/poppins_bold"
                 android:text="TextView"
-                android:textColor="@color/black"
+                android:textColor="@color/brown"
                 android:textStyle="normal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
