@@ -3,6 +3,7 @@ package com.example.coffetec
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.coffetec.databinding.ActivityShowHarvestBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
@@ -19,7 +20,6 @@ class ShowHarvestActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityShowHarvestBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         harvestId = intent.extras?.getString("idHarvest","").toString()
         loadInfo()
 
@@ -33,6 +33,7 @@ class ShowHarvestActivity : AppCompatActivity() {
                 putExtra("harvestId",harvestId)
                 putExtra("harvest", Gson().toJson(harvest))
             }
+            finish()
             startActivity(intent)
         }
     }
@@ -56,6 +57,7 @@ class ShowHarvestActivity : AppCompatActivity() {
         binding.dateHarvest.setOnKeyListener(null)
     }
 
-
-
+    override fun onBackPressed() {
+        finish()
+    }
 }

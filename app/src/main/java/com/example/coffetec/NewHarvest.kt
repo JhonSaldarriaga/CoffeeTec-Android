@@ -27,7 +27,7 @@ class NewHarvest : AppCompatActivity() {
         binding.btnCreate.setOnClickListener{
 
             var id: String = UUID.randomUUID().toString()
-            val numLump = numLump(id)
+            val numLump = Util.numLump(id)
             val date = getCurrentDateTime().toString("yyyy/MM/dd")
             //val qr = binding.ivCodigoQR.toString()
             val state = binding.stateSpinner.selectedItem.toString()
@@ -60,14 +60,7 @@ class NewHarvest : AppCompatActivity() {
         return Calendar.getInstance().time
     }
 
-    fun numLump(id:String): Int{
-        var numBult = 0
-        Firebase.firestore.collection("harvests").document(id).collection("lumps")
-            .get().addOnCompleteListener { lumps->
-                for(i in lumps.result!!){
-                    numBult++
-                }
-            }
-        return numBult
+    override fun onBackPressed() {
+        finish()
     }
 }
