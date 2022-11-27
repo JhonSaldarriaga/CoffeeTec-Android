@@ -11,6 +11,8 @@ import com.example.coffetec.fragments.HarvestFragment
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
+import com.google.zxing.BarcodeFormat
+import com.journeyapps.barcodescanner.BarcodeEncoder
 ///import com.google.zxing.BarcodeFormat
 ///import com.journeyapps.barcodescanner.BarcodeEncoder
 import java.util.*
@@ -68,7 +70,7 @@ class NewLumpActivity : AppCompatActivity() {
             finish()
         }
 
-        /**
+
         binding.btnGenerar.setOnClickListener {
             try{
                 val barcodeEncode : BarcodeEncoder = BarcodeEncoder()
@@ -83,6 +85,5 @@ class NewLumpActivity : AppCompatActivity() {
                 e.printStackTrace()
             }
         }
-        */
     }
 }

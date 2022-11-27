@@ -44,6 +44,10 @@ class ShowHarvestActivity : AppCompatActivity() {
             finish()
             startActivity(intent)
         }
+
+        binding.btnCancel.setOnClickListener {
+            finish()
+        }
     }
 
     private fun loadInfo(){
@@ -52,9 +56,9 @@ class ShowHarvestActivity : AppCompatActivity() {
             .document(harvestId).get().addOnCompleteListener { harvest->
                 val harvestInfo: Harvest = harvest.result.toObject(Harvest::class.java)!!
                 if(harvestInfo.id!=""){
-                    binding.idHarvest.setText(harvestInfo.id)
-                    binding.dateHarvest.setText(harvestInfo.date)
-                    binding.numBult.setText(harvestInfo.numLump.toString())
+                    binding.idHarvest.setText("ID: "+harvestInfo.id)
+                    binding.dateHarvest.setText("Fecha: "+harvestInfo.date)
+                    binding.numBult.setText("Numero de bultos "+harvestInfo.numLump.toString())
                 }
             }
     }
