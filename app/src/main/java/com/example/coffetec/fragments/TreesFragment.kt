@@ -65,6 +65,10 @@ class TreesFragment : Fragment() {
         adapter.addTree(tree)
     }
 
+    fun removeTree(tree: Tree){
+        adapter.removeTree(tree)
+    }
+
     companion object {
         @JvmStatic
         fun newInstance() = TreesFragment()

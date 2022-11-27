@@ -36,4 +36,10 @@ class TreesAdapter : RecyclerView.Adapter<TreesViewHolder>(){
         trees.add(tree)
         notifyDataSetChanged()
     }
+
+    fun removeTree(tree: Tree){
+        var position = trees.indexOf(tree)
+        notifyItemRemoved(position)
+        trees.removeAt(position)
+    }
 }

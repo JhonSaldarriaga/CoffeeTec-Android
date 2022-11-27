@@ -76,6 +76,7 @@ class HomeActivity : AppCompatActivity(), TreesFragment.Listener, TreesViewHolde
     }
     override fun onBackButtonShowTreeFragment() { showFragment(treesFragment) }
     override fun updateTreeInfo(tree: Tree) {
+        if(tree.state!=resources.getStringArray(R.array.tree_states)[0]) treesFragment.removeTree(tree)
         Firebase.firestore.collection("trees").document(tree.id).set(tree).addOnSuccessListener {
             Toast.makeText(this, R.string.successfull_update, Toast.LENGTH_SHORT).show()
         }
