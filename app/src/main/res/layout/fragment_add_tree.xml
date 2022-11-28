@@ -124,6 +124,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/latitude_edit_text_add_tree"
+                android:inputType="numberDecimal|numberSigned"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
@@ -146,6 +147,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/longitude_edit_text_add_tree"
+                android:inputType="numberDecimal|numberSigned"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
@@ -185,7 +187,7 @@
             app:layout_constraintTop_toBottomOf="@+id/longitude_edit_layout_text_add_tree">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/image_captured_add_tree"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:src="@drawable/tree" />
