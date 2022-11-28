@@ -7,7 +7,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:748531064907:android:0c0d98da8f3096fcb82dce",
+        "mobilesdk_app_id": "1:748531064907:android:59ae9bf98767b636b82dce",
         "android_client_info": {
           "package_name": "com.example.coffetec"
         }
@@ -33,7 +33,7 @@
           ]
         }
       }
-    }
+    },
   ],
   "configuration_version": "1"
 }

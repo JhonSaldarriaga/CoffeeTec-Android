@@ -11,4 +11,7 @@
     <color name="green">#297012</color>
     <color name="grey">#A1ADA9</color>
     <color name="orangeFloatButton">#ecdccc</color>
+    <color name="green_light">#0DE315</color>
+    <color name="grey_light">#B5B2B2</color>
+    <color name="green_soft">#68EF3C</color>
 </resources>
