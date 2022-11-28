@@ -17,7 +17,7 @@ class SplashActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                val intent = Intent(applicationContext, LoginActivity :: class.java).apply{}
+                val intent = Intent(applicationContext, LoginActivity :: class.java)
                 startActivity(intent)
                 finish()
             }

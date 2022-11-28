@@ -1,7 +1,9 @@
 package com.example.coffetec
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import com.example.coffetec.databinding.ActivityHomeBinding
 import com.example.coffetec.fragments.HarvestFragment
@@ -14,9 +16,14 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var newHarvest: NewHarvest
     private val binding : ActivityHomeBinding by lazy { ActivityHomeBinding.inflate(layoutInflater) }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        var userId = intent.extras?.getString("userId", "").toString()
+
+        Log.e(" 26 - HomeActivity ", userId)
 
         harvestFragment = HarvestFragment.newInstance()
         sensorsFragment = SensorsDashboardFragment.newInstance()
@@ -29,6 +36,13 @@ class HomeActivity : AppCompatActivity() {
                 R.id.harvestmenu -> {showFragment(harvestFragment)}
             }
             true
+        }
+
+        binding.profileButton.setOnClickListener{
+            val intent = Intent(this, ProfileActivity :: class.java).apply {
+                putExtra("userId", userId)
+            }
+            startActivity(intent)
         }
     }
 

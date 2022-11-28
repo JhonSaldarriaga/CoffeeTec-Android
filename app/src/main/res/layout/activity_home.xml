@@ -6,6 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
+
+    <Button
+        android:id="@+id/profileButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/circle_shape"
+        android:elevation="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:elevation="100dp"
+        app:layout_constraintBottom_toBottomOf="@+id/profileButton"
+        app:layout_constraintEnd_toEndOf="@+id/profileButton"
+        app:layout_constraintStart_toStartOf="@+id/profileButton"
+        app:layout_constraintTop_toTopOf="@+id/profileButton"
+        app:srcCompat="@drawable/ic_baseline_person_outline_24" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigator"
         android:layout_width="412dp"
@@ -21,8 +44,7 @@
         android:layout_height="662dp"
         app:layout_constraintBottom_toTopOf="@+id/navigator"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="parent">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

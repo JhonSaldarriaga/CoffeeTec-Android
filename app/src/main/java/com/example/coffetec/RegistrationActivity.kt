@@ -62,14 +62,14 @@ class RegistrationActivity : AppCompatActivity() {
         )
         uid?.let {
             val user = User(
-                it,
+                uid,
                 binding.nameET.text.toString(),
                 binding.houseCampET.text.toString(),
                 binding.documentET.text.toString(),
                 binding.emailSignUpET.text.toString(),
                 binding.phoneET.text.toString()
             )
-            Firebase.firestore.collection("users").document(it).set(user).addOnSuccessListener {
+            Firebase.firestore.collection("users").document(user.id).set(user).addOnSuccessListener {
                 startActivity(Intent(this, LoginActivity::class.java))
             }
         }
