@@ -17,7 +17,7 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/passwordConfirmET"
         app:layout_constraintStart_toStartOf="@+id/passwordConfirmET"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/cameraBtn" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -222,14 +222,14 @@
         android:fontFamily="@font/poppins"
         android:text="@string/foto_perfil"
         android:textColor="@color/green"
-        app:layout_constraintBottom_toBottomOf="@+id/button2"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintBottom_toBottomOf="@+id/cameraBtn"
+        app:layout_constraintEnd_toStartOf="@+id/cameraBtn"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/passwordConfirmET"
-        app:layout_constraintTop_toTopOf="@+id/button2" />
+        app:layout_constraintTop_toTopOf="@+id/cameraBtn" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/cameraBtn"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
@@ -251,9 +251,9 @@
         android:fontFamily="@font/poppins_bold"
         android:text="Galeria"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/button2"
+        app:layout_constraintBottom_toBottomOf="@+id/cameraBtn"
         app:layout_constraintEnd_toEndOf="@+id/passwordConfirmET"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toTopOf="@+id/button2" />
+        app:layout_constraintStart_toEndOf="@+id/cameraBtn"
+        app:layout_constraintTop_toTopOf="@+id/cameraBtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>
