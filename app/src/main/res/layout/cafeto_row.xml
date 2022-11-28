@@ -80,5 +80,14 @@
             app:layout_constraintTop_toTopOf="@+id/name_cafeto_row"
             app:srcCompat="@drawable/ic_baseline_remove_red_eye_24" />
 
+        <ImageView
+            android:id="@+id/show_image_cafeto_row"
+            style="@style/imageGreenButton"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/location_cafeto_row"
+            app:layout_constraintEnd_toStartOf="@+id/show_cafeto_row"
+            app:layout_constraintTop_toTopOf="@+id/name_cafeto_row"
+            app:srcCompat="@drawable/ic_baseline_image_24" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

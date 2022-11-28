@@ -3,6 +3,7 @@ package com.example.coffetec
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,12 +15,14 @@ import androidx.activity.result.contract.ActivityResultContracts.StartActivityFo
 import androidx.annotation.RequiresApi
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.example.coffetec.databinding.ActivityHomeBinding
 import com.example.coffetec.fragments.*
 import com.example.coffetec.model.Tree
 import com.example.coffetec.recycler.TreesViewHolder
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 import java.io.File
 import java.util.*
 import kotlin.collections.ArrayList
@@ -31,6 +34,8 @@ class HomeActivity : AppCompatActivity(), TreesFragment.Listener, TreesViewHolde
     private lateinit var treesFragment: TreesFragment
     private lateinit var addTreesFragment: AddTreeFragment
     private lateinit var showTreeFragment: ShowTreeFragment
+    private var showTreePhotoDialogFragment = ShowTreePhotoDialogFragment()
+
     private val binding : ActivityHomeBinding by lazy { ActivityHomeBinding.inflate(layoutInflater) }
 
     private val cameraLauncher  = registerForActivityResult(StartActivityForResult(), ::onCamaraResult)
@@ -95,10 +100,28 @@ class HomeActivity : AppCompatActivity(), TreesFragment.Listener, TreesViewHolde
         Log.e(">>>","Estoy en el home y recibi a: ${tree.name}")
         showFragment(showTreeFragment)
     }
+    override fun onClickShowTreePhoto(tree: Tree) {
+        if(tree.hasImage){
+            Firebase.storage.reference.child("tree_photos").child(tree.id).downloadUrl.addOnSuccessListener {
+                showTreePhotoDialogFragment.loadUri(it)
+                showTreePhotoDialogFragment.show(supportFragmentManager,"Show image tree")
+            }
+        }else Toast.makeText(this,"El cafeto no tiene foto", Toast.LENGTH_LONG).show()
+    }
+
     //add_trees fragment
     override fun onBackButtonAddTreeFragment() { showFragment(treesFragment) }
-    override fun addTreeToDataBase(tree: Tree) {
-        TODO("Not yet implemented")
+    override fun addTreeToDataBase(tree: Tree, uri: Uri?) {
+        if(uri!=null){
+            Firebase.storage.reference.child("tree_photos").child(tree.id).putFile(uri).addOnCompleteListener {
+                Toast.makeText(this,"Se ha subido la foto correctamente", Toast.LENGTH_SHORT).show()
+            }
+        }
+        Firebase.firestore.collection("trees").document(tree.id).set(tree).addOnCompleteListener {
+            Toast.makeText(this,"Se ha agregado el cafeto correctamente", Toast.LENGTH_SHORT).show()
+        }
+        showFragment(treesFragment)
+        treesFragment.addTree(tree)
     }
     @RequiresApi(Build.VERSION_CODES.M)
     override fun loadPermissions(){
@@ -107,7 +130,6 @@ class HomeActivity : AppCompatActivity(), TreesFragment.Listener, TreesViewHolde
             Manifest.permission.READ_EXTERNAL_STORAGE
         ),1)
     }
-
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -126,7 +148,6 @@ class HomeActivity : AppCompatActivity(), TreesFragment.Listener, TreesViewHolde
             else{ Toast.makeText(this,"No se han aceptado los servicios de la cámara",Toast.LENGTH_SHORT).show() }
         }
     }
-
     override fun takeCameraPhoto() {
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         tempFile = File("${getExternalFilesDir(null)}/photo${UUID.randomUUID().toString()}.png")
@@ -134,16 +155,18 @@ class HomeActivity : AppCompatActivity(), TreesFragment.Listener, TreesViewHolde
         intent.putExtra(MediaStore.EXTRA_OUTPUT, uri)
         cameraLauncher.launch(intent)
     }
-
     private fun onCamaraResult(result: ActivityResult){
         if(result.resultCode == RESULT_OK){
-            val path = tempFile?.path
-            addTreesFragment.tempPath = path
+            val uri = FileProvider.getUriForFile(this, packageName, tempFile!!)
+            //val path = tempFile?.path
+            //addTreesFragment.tempPath = path
+            addTreesFragment.uri = uri
             addTreesFragment.showImageTaked()
         }else if(result.resultCode==RESULT_CANCELED){
             Toast.makeText(this,"No se detectó una foto tomada", Toast.LENGTH_SHORT).show()
         }
     }
+
     //show_trees fragment
     override fun onBackButtonShowTreeFragment() { showFragment(treesFragment) }
     override fun updateTreeInfo(tree: Tree) {
@@ -152,5 +175,4 @@ class HomeActivity : AppCompatActivity(), TreesFragment.Listener, TreesViewHolde
             Toast.makeText(this, R.string.successfull_update, Toast.LENGTH_SHORT).show()
         }
     }
-
 }

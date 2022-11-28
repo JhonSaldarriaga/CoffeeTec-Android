@@ -6,4 +6,5 @@ data class Tree(var id:String = "",
                 var date:String = "",
                 var state:String = "",
                 var latitude:Double = 0.0,
-                var longitude:Double = 0.0)
+                var longitude:Double = 0.0,
+                var hasImage:Boolean = false)
