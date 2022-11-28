@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toStartOf="@+id/nameTxt"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imgProfile" />
 
     <TextView
         android:id="@+id/nameTxt"
@@ -172,7 +172,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView16" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imgProfile"
         android:layout_width="135dp"
         android:layout_height="135dp"
         android:layout_marginTop="16dp"

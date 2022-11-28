@@ -36,6 +36,12 @@ class ProfileActivity : AppCompatActivity() {
             binding.phoneTxt.text = user.phone
             binding.houseCampTxt.text = user.houseCamp
             binding.emailTxt.text = user.email
+            withContext(Dispatchers.Main){
+                val uriImage = Uri.parse(user.uriProfile)
+                uriImage.let {
+                    binding.imgProfile.setImageURI(uriImage)
+                }
+            }
         }
 
         binding.backBtnProfile.setOnClickListener {
