@@ -51,7 +51,7 @@ class NewHarvest : AppCompatActivity() {
             }
         }
 
-        binding.btnCancel.setOnClickListener {
+        binding.btnCancelnewHarvest.setOnClickListener {
             finish()
         }
     }

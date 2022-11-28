@@ -7,22 +7,43 @@
     android:layout_height="match_parent"
     tools:context=".NewLumpActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerLayoutInfo"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/ic_baseline_arrow_back_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <ImageView
         android:id="@+id/ivCodigoQR"
         android:layout_width="270dp"
         android:layout_height="270dp"
 
         android:layout_marginTop="20dp"
+        android:background="@drawable/harvest_row_shape"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/headerLayoutInfo" />
 
     <EditText
         android:id="@+id/etDatos"
-        android:layout_width="347dp"
+        android:layout_width="300dp"
         android:layout_height="65dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/background_input"
         android:hint="Datos sobre sobre el bulto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,42 +53,40 @@
         android:id="@+id/btnGenerar"
         android:layout_width="238dp"
         android:layout_height="57dp"
-        android:layout_marginBottom="256dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/background_btn"
+        android:fontFamily="@font/poppins_bold"
         android:text="Generar QR"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btnCancel"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginBottom="44dp"
-        android:text="Cancelar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/etDatos"
+        app:layout_constraintStart_toStartOf="@+id/etDatos"
+        app:layout_constraintTop_toBottomOf="@+id/etDatos" />
 
     <Button
         android:id="@+id/btnCreate"
         android:layout_width="120dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/background_btn"
+        android:fontFamily="@font/poppins_bold"
         android:text="Crear"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/ETKg"
+        app:layout_constraintStart_toStartOf="@+id/ETKg"
+        app:layout_constraintTop_toBottomOf="@+id/ETKg" />
 
     <EditText
         android:id="@+id/ETKg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/background_input"
         android:ems="10"
         android:hint="Peso en (Kg)"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        app:layout_constraintStart_toStartOf="@+id/etDatos"
+        app:layout_constraintEnd_toEndOf="@+id/btnGenerar"
+        app:layout_constraintStart_toStartOf="@+id/btnGenerar"
         app:layout_constraintTop_toBottomOf="@+id/btnGenerar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
