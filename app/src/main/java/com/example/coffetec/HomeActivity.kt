@@ -32,12 +32,9 @@ class HomeActivity : AppCompatActivity(), TreesFragment.Listener, TreesViewHolde
 
     private lateinit var harvestFragment: HarvestFragment
     private lateinit var sensorsFragment: SensorsDashboardFragment
-    private lateinit var profileFragment : ProfileFragment
     private lateinit var treesFragment: TreesFragment
     private lateinit var addTreesFragment: AddTreeFragment
     private lateinit var showTreeFragment: ShowTreeFragment
-
-    private lateinit var newHarvest: NewHarvest
     private var showTreePhotoDialogFragment = ShowTreePhotoDialogFragment()
 
     private val binding : ActivityHomeBinding by lazy { ActivityHomeBinding.inflate(layoutInflater) }
@@ -55,12 +52,14 @@ class HomeActivity : AppCompatActivity(), TreesFragment.Listener, TreesViewHolde
 
         //trees_section fragments
         treesFragment = TreesFragment.newInstance()
+        addTreesFragment = AddTreeFragment.newInstance()
+        showTreeFragment = ShowTreeFragment.newInstance()
+
+
+        showTreeFragment.listener = this
         treesFragment.listener = this
         treesFragment.listenerViewHolder = this
-        addTreesFragment = AddTreeFragment.newInstance()
         addTreesFragment.listener = this
-        showTreeFragment = ShowTreeFragment.newInstance()
-        showTreeFragment.listener = this
 
         harvestFragment = HarvestFragment.newInstance()
         sensorsFragment = SensorsDashboardFragment.newInstance()

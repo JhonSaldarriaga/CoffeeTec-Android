@@ -51,7 +51,7 @@ class SensorViewHolder(itemView:View): RecyclerView.ViewHolder(itemView) {
         }else{
             sensorState.setText("Activo")
             sensorState.setTextColor(Color.rgb(41,112,18))
-            sensorImg.setImageResource(R.drawable.ic_baseline_wifi_24)
+            sensorImg.setImageResource(R.drawable.ic_baseline_wifi_24_green)
 
         }
     }
