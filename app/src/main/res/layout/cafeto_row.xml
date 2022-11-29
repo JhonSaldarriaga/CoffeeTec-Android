@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cafeto_row_shape"
+        android:elevation="15dp"
+        android:outlineAmbientShadowColor="@color/green"
+        android:outlineSpotShadowColor="@color/green_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/name_cafeto_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            tools:text="Cafeto Zona Norte 2"
+            android:textColor="@color/brown"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/state_title_cafeto_row"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/state_title"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/location_cafeto_row"
+            app:layout_constraintTop_toBottomOf="@+id/location_cafeto_row" />
+
+        <TextView
+            android:id="@+id/state_cafeto_row"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            tools:text="Saludable"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/state_title_cafeto_row"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/state_title_cafeto_row"
+            app:layout_constraintTop_toTopOf="@+id/state_title_cafeto_row" />
+
+        <TextView
+            android:id="@+id/location_cafeto_row"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/name_cafeto_row"
+            app:layout_constraintStart_toStartOf="@+id/name_cafeto_row"
+            app:layout_constraintTop_toBottomOf="@+id/name_cafeto_row"
+            tools:text="LAT:-98.23124, LON:29.213123"
+            android:textColor="@color/grey"
+            android:fontFamily="@font/poppins"
+            android:textSize="10dp"/>
+
+        <ImageView
+            android:id="@+id/show_cafeto_row"
+            style="@style/imageGreenButton"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/location_cafeto_row"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/name_cafeto_row"
+            app:srcCompat="@drawable/ic_baseline_remove_red_eye_24" />
+
+        <ImageView
+            android:id="@+id/show_image_cafeto_row"
+            style="@style/imageGreenButton"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/location_cafeto_row"
+            app:layout_constraintEnd_toStartOf="@+id/show_cafeto_row"
+            app:layout_constraintTop_toTopOf="@+id/name_cafeto_row"
+            app:srcCompat="@drawable/ic_baseline_image_24" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

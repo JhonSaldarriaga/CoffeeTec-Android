@@ -31,4 +31,35 @@
     <string name="aceptar">Aceptar</string>
     <string name="cancelar">Cancelar</string>
     <string name="ok_guardar">Cambios realizados con exito</string>
+
+    <string name="title_add_tree">Registro de cafeto</string>
+    <string name="add_photo_add_tree">Tomar foto</string>
+    <string name="register">Registrar</string>
+    <string name="name_hint">Nombre</string>
+    <string name="id_hint">ID</string>
+    <string name="date_hint">Fecha</string>
+    <string name="disease_hint">Tipo de enfermedad</string>
+    <string name="latitude_hint">Latitud</string>
+    <string name="longitude_hint">Longitud</string>
+    <string name="title_show_tree">Datos del cafeto</string>
+    <string name="state_connect">Conectado</string>
+    <string name="state_disconnect">Desconectado</string>
+    <string name="location">Ubicación:</string>
+    <string name="successfull_update">Se han realizado los cambios con exito!</string>
+    <string name="state_title">Estado:</string>
+    <string-array name="tree_sicks">
+        <item>Roya</item>
+        <item>Mancha de hierro</item>
+        <item>Antracnosis</item>
+        <item>Mal rosado</item>
+        <item>Ojo de gallo</item>
+        <item>Mal del talluelo</item>
+        <item>No</item>
+    </string-array>
+    <string-array name="tree_states">
+        <item>Enfermo</item>
+        <item>Talado</item>
+        <item>Recuperado</item>
+    </string-array>
+
 </resources>
