@@ -26,7 +26,7 @@ class HarvestViewHolder(itemView : View): RecyclerView.ViewHolder(itemView) {
 
     fun bindHarves(harvestBind:Harvest){
         harvest = harvestBind
-        id.setText("ID: "+harvestBind.id)
+        id.setText("ID: "+harvestBind.id.substring(0,10))
         numLump.setText(""+harvestBind.numLump)
         state.setText(harvestBind.state)
     }
