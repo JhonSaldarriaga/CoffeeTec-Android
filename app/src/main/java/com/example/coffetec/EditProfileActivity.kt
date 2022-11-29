@@ -48,15 +48,14 @@ class EditProfileActivity : AppCompatActivity() {
             val user = Firebase.firestore
                 .collection("users").document(Firebase.auth.currentUser!!.uid).get().await()
                 .toObject(User::class.java)!!
-            binding.nameEditProfileET.setText(user.fullname)
-            binding.phoneEditProfileET.setText(user.phone)
-            binding.houseCampEditProfileET.setText(user.houseCamp)
             withContext(Dispatchers.Main){
+                binding.nameEditProfileET.setText(user.fullname)
+                binding.phoneEditProfileET.setText(user.phone)
+                binding.houseCampEditProfileET.setText(user.houseCamp)
                 Firebase.storage.getReference().child("users_photos").child(user.uriProfile).downloadUrl.addOnSuccessListener {
                     Glide.with(binding.imgProfile).load(it).into(binding.imgProfile)
                 }
             }
-
         }
 
         val cameralauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult(), ::onCameraResult)
