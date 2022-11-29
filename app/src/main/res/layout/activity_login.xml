@@ -15,7 +15,7 @@
         android:text="@string/sesion"
         android:textColor="@color/brown"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/emailSignInET"
+        app:layout_constraintBottom_toTopOf="@+id/emailSignInETLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -31,25 +31,34 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <EditText
-        android:id="@+id/emailSignInET"
-        android:layout_width="0dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailSignInETLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/background_input"
+        android:layout_marginBottom="32dp"
         android:ems="10"
         android:hint="@string/correo"
-        android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:paddingStart="5dp"
         app:layout_constraintBottom_toTopOf="@+id/passwordSignInET"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailSignInET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:padding="15dp"
+            android:minHeight="48dp"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordSignInET"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
@@ -57,18 +66,17 @@
         android:hint="@string/contraseña"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        android:password="true"
+        android:password = "true"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="@+id/emailSignInET"
-        app:layout_constraintStart_toStartOf="@+id/emailSignInET"
+        app:layout_constraintEnd_toEndOf="@+id/emailSignInETLayout"
+        app:layout_constraintStart_toStartOf="@+id/emailSignInETLayout"
         app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/background_input"
-            android:padding="5dp"
-            android:password="true"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:password = "true"
             android:textColor="@color/black"
             android:textColorHint="#99FFFFFF" />
     </com.google.android.material.textfield.TextInputLayout>
