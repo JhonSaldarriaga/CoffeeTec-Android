@@ -111,10 +111,11 @@ class EditProfileActivity : AppCompatActivity() {
                         binding.phoneEditProfileET.text.toString(),
                         filename
                     )
-                    Firebase.storage.getReference().child("users_photos").child(filename).putFile(Uri.parse(URI)).await()
+                    Log.e(">>>","$URI")
+                    if(URI!="") Firebase.storage.reference.child("users_photos").child(filename).putFile(Uri.parse(URI)).await()
+                    else newUser.uriProfile = user.uriProfile
                     Firebase.firestore.collection("users").document(it).set(newUser)
                 }
-
             }
             val builder = AlertDialog.Builder(this)
             builder.setView(R.layout.dialog_save_profile)
