@@ -24,34 +24,34 @@
             app:srcCompat="@drawable/caficultor" />
 
         <Button
-            android:id="@+id/cancelBtnBack"
+            android:id="@+id/cameraBtnDialog"
             android:layout_width="96dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:layout_marginBottom="32dp"
-            android:background="@drawable/background_btn2"
+            android:background="@drawable/background_btn"
             android:fontFamily="@font/poppins_bold"
-            android:text="@string/cancelar"
+            android:text="@string/camara"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/acceptBtnBack"
+            app:layout_constraintEnd_toStartOf="@+id/galleryBtnDialog"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
         <Button
-            android:id="@+id/acceptBtnBack"
+            android:id="@+id/galleryBtnDialog"
             android:layout_width="96dp"
             android:layout_height="wrap_content"
             android:background="@drawable/background_btn"
             android:fontFamily="@font/poppins_bold"
-            android:text="@string/aceptar"
+            android:text="@string/galeria"
             android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="@+id/cancelBtnBack"
+            app:layout_constraintBottom_toBottomOf="@+id/cameraBtnDialog"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/cancelBtnBack"
-            app:layout_constraintTop_toTopOf="@+id/cancelBtnBack" />
+            app:layout_constraintStart_toEndOf="@+id/cameraBtnDialog"
+            app:layout_constraintTop_toTopOf="@+id/cameraBtnDialog" />
 
         <TextView
             android:id="@+id/textView10"
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:fontFamily="@font/poppins"
-            android:text="@string/no_guardar"
+            android:text="@string/foto_perfil"
             android:textColor="@color/green"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="@+id/imageView3"

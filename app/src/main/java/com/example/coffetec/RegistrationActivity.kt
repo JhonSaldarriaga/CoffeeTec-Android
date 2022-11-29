@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
@@ -17,7 +18,9 @@ import com.example.coffetec.model.User
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 import java.io.File
+import java.util.*
 
 class RegistrationActivity : AppCompatActivity() {
 
@@ -94,6 +97,7 @@ class RegistrationActivity : AppCompatActivity() {
         Log.e(
             "<--<<<","${uid}"
         )
+        val filename = UUID.randomUUID().toString()
         uid?.let {
             val user = User(
                 it,
@@ -102,8 +106,9 @@ class RegistrationActivity : AppCompatActivity() {
                 binding.documentET.text.toString(),
                 binding.emailSignUpET.text.toString(),
                 binding.phoneET.text.toString(),
-                URI
+                filename
             )
+            Firebase.storage.getReference().child("users_photos").child(filename).putFile(Uri.parse(URI))
             Firebase.firestore.collection("users").document(it).set(user).addOnSuccessListener {
                 startActivity(Intent(this, LoginActivity::class.java))
             }
