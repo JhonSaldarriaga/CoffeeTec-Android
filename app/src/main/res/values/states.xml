@@ -4,7 +4,7 @@
         name="states_spinner">
         <item>Clasificado</item>
         <item>Despulpado</item>
-        <item>Lavdo y Fermentación</item>
+        <item>Lavado y Fermentación</item>
         <item>Secado</item>
         <item>Empaquetado</item>
     </string-array>

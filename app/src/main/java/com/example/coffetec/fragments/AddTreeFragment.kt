@@ -58,6 +58,7 @@ class AddTreeFragment : Fragment() {
             if(permissionsGranted) listener.takeCameraPhoto()
             else listener.loadPermissions()
         }
+
         binding.addTreeBtn.setOnClickListener {
             val id = UUID.randomUUID().toString()
             val date = LocalDate.now().toString()
