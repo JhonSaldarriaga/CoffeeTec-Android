@@ -62,4 +62,8 @@
         <item>Recuperado</item>
     </string-array>
 
+    <string name="sensors_title">SENSORES</string>
+    <string name="sick_trees_title">CAFETOS ENFERMOS</string>
+    <string name="harvest_title">COSECHAS</string>
+
 </resources>

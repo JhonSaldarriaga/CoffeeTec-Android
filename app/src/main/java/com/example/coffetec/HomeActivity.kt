@@ -64,6 +64,8 @@ class HomeActivity : AppCompatActivity(), TreesFragment.Listener, TreesViewHolde
         harvestFragment = HarvestFragment.newInstance()
         sensorsFragment = SensorsDashboardFragment.newInstance()
 
+        showFragment(sensorsFragment) //DEFAULT
+
         //suscription
         binding.navigator.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {

@@ -39,7 +39,7 @@
         android:fontFamily="@font/poppins_bold"
         android:text="@string/title_add_tree"
         android:textColor="@color/brown"
-        android:textSize="24sp"
+        android:textSize="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bar_show_tree" />
