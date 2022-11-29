@@ -150,10 +150,9 @@
             android:id="@+id/deleteSensorButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
             android:background="@drawable/circle_shape"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/editInfoSensorButton"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
@@ -161,9 +160,11 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:background="@drawable/circle_shape"
+
+            android:layout_marginStart="60dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/deleteSensorButton"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <ImageView
             android:id="@+id/imageView4"
