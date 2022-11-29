@@ -70,32 +70,6 @@
         app:layout_constraintStart_toStartOf="@+id/stateSpinner2"
         app:layout_constraintTop_toBottomOf="@+id/stateSpinner2" />
 
-    <Button
-        android:id="@+id/btnEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="100dp"
-        android:background="@drawable/background_btn"
-        android:fontFamily="@font/poppins_bold"
-        android:text="Actualizar datos"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numBult" />
-
-    <Button
-        android:id="@+id/btnAddLump"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="50dp"
-        android:background="@drawable/background_btn"
-        android:fontFamily="@font/poppins_bold"
-        android:text="Añadir bulto"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numBult" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/headerLayoutInfo"
         android:layout_width="match_parent"
@@ -122,8 +96,37 @@
         android:background="@drawable/background_inferior"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numBult">
+        app:layout_constraintTop_toBottomOf="@+id/numBult"
+        app:layout_constraintVertical_bias="0.0">
 
+        <Button
+            android:id="@+id/btnEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/background_btn"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Actualizar datos"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnAddLump"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/background_btn"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Añadir bulto"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/btnEdit"
+            app:layout_constraintStart_toStartOf="@+id/btnEdit"
+            app:layout_constraintTop_toBottomOf="@+id/btnEdit"
+            tools:visibility="visible" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
