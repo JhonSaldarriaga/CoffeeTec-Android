@@ -9,32 +9,9 @@
       "client_info": {
         "mobilesdk_app_id": "1:748531064907:android:59ae9bf98767b636b82dce",
         "android_client_info": {
-          "package_name": "com.example.coffeetec"
+          "package_name": "com.example.coffetec"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "748531064907-1llk9260g57u81fhvhc3381uum14e272.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCjZu38NfKupOwEuUUtVryUXDF24j4Hpc4"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "748531064907-1llk9260g57u81fhvhc3381uum14e272.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
       "oauth_client": [
         {
           "client_id": "748531064907-1llk9260g57u81fhvhc3381uum14e272.apps.googleusercontent.com",
