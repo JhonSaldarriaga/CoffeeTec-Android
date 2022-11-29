@@ -31,13 +31,13 @@ class ProfileActivity : AppCompatActivity() {
                 .collection("users").document(Firebase.auth.currentUser!!.uid).get().await()
                 .toObject(User::class.java)!!
 
-            binding.nameTxt.text = user.fullname
-            binding.documentTxt.text = user.document
-            binding.phoneTxt.text = user.phone
-            binding.houseCampTxt.text = user.houseCamp
-            binding.emailTxt.text = user.email
             withContext(Dispatchers.Main){
-                Firebase.storage.getReference().child("users_photos").child(user.uriProfile).downloadUrl.addOnSuccessListener {
+                binding.nameTxt.text = user.fullname
+                binding.documentTxt.text = user.document
+                binding.phoneTxt.text = user.phone
+                binding.houseCampTxt.text = user.houseCamp
+                binding.emailTxt.text = user.email
+                Firebase.storage.reference.child("users_photos").child(user.uriProfile).downloadUrl.addOnSuccessListener {
                     Glide.with(binding.imgProfile).load(it).into(binding.imgProfile)
                 }
             }
