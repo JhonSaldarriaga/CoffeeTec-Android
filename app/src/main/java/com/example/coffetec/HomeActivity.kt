@@ -1,22 +1,23 @@
 package com.example.coffetec
 
-import android.Manifest
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.util.Log
+import android.Manifest
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
 import androidx.annotation.RequiresApi
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
-import com.bumptech.glide.Glide
 import com.example.coffetec.databinding.ActivityHomeBinding
+import com.example.coffetec.fragments.HarvestFragment
+import com.example.coffetec.sensors.SensorsDashboardFragment
 import com.example.coffetec.fragments.*
 import com.example.coffetec.model.Tree
 import com.example.coffetec.recycler.TreesViewHolder
@@ -30,8 +31,7 @@ import kotlin.collections.ArrayList
 class HomeActivity : AppCompatActivity(), TreesFragment.Listener, TreesViewHolder.Listener, AddTreeFragment.Listener, ShowTreeFragment.Listener {
 
     private lateinit var harvestFragment: HarvestFragment
-    private lateinit var newHarvest: NewHarvest
-    private lateinit var profileFragment : ProfileFragment
+    private lateinit var sensorsFragment: SensorsDashboardFragment
     private lateinit var treesFragment: TreesFragment
     private lateinit var addTreesFragment: AddTreeFragment
     private lateinit var showTreeFragment: ShowTreeFragment
@@ -43,34 +43,45 @@ class HomeActivity : AppCompatActivity(), TreesFragment.Listener, TreesViewHolde
     private var tempFile: File? = null
 
     @RequiresApi(Build.VERSION_CODES.M)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        harvestFragment = HarvestFragment.newInstance()
-
-        //suscription
-
+        var userId = intent.extras?.getString("userId", "").toString()
 
         //trees_section fragments
         treesFragment = TreesFragment.newInstance()
+        addTreesFragment = AddTreeFragment.newInstance()
+        showTreeFragment = ShowTreeFragment.newInstance()
+
+
+        showTreeFragment.listener = this
         treesFragment.listener = this
         treesFragment.listenerViewHolder = this
-        addTreesFragment = AddTreeFragment.newInstance()
         addTreesFragment.listener = this
-        showTreeFragment = ShowTreeFragment.newInstance()
-        showTreeFragment.listener = this
+
+        harvestFragment = HarvestFragment.newInstance()
+        sensorsFragment = SensorsDashboardFragment.newInstance()
+
+        //suscription
+        binding.navigator.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.harvestmenu -> { showFragment(harvestFragment) }
+                R.id.sensoresmenu -> { showFragment(sensorsFragment) }
+                R.id.treemenu -> { showFragment(treesFragment) }
+            }
+            true
+        }
 
         loadPermissions()
         loadTrees()
 
-        binding.navigator.setOnItemSelectedListener { menuItem->
-            when(menuItem.itemId){
-                R.id.harvestmenu -> {showFragment(harvestFragment)}
-                R.id.homemenu -> {showFragment(profileFragment)}
-                R.id.treemenu -> {showFragment(treesFragment)}
+        binding.profileButton.setOnClickListener{
+            val intent = Intent(this, ProfileActivity :: class.java).apply {
+                putExtra("userId", userId)
             }
-            true
+            startActivity(intent)
         }
     }
 
@@ -78,13 +89,13 @@ class HomeActivity : AppCompatActivity(), TreesFragment.Listener, TreesViewHolde
         val trees = ArrayList<Tree>()
         Firebase.firestore.collection("trees").whereEqualTo("state", resources.getStringArray(R.array.tree_states)[0]).get()
             .addOnCompleteListener{ task ->
-            for(document in task.result!!) {
-                val treeFound = document.toObject(Tree::class.java)
-                trees.add(treeFound)
+                for(document in task.result!!) {
+                    val treeFound = document.toObject(Tree::class.java)
+                    trees.add(treeFound)
+                }
+                treesFragment.trees = trees
+                treesFragment.loadComplete()
             }
-            treesFragment.trees = trees
-            treesFragment.loadComplete()
-        }
     }
 
     private fun showFragment (fragment : Fragment){
