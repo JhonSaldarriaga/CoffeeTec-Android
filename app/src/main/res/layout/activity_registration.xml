@@ -22,9 +22,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="120dp"
         android:background="@drawable/background_top"
-        app:layout_constraintBottom_toTopOf="@+id/houseCampET"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -33,14 +32,16 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="72dp"
+            android:layout_marginTop="32dp"
             android:fontFamily="@font/poppins_bold"
             android:text="@string/registrar"
             android:textColor="@color/brown"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/backBtn"
@@ -55,88 +56,127 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <EditText
-        android:id="@+id/nameET"
-        android:layout_width="0dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nameETLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="125dp"
         android:layout_marginEnd="32dp"
-        android:background="@drawable/background_input"
         android:ems="10"
         android:hint="@string/nombre_com"
-        android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
-    <EditText
-        android:id="@+id/houseCampET"
-        android:layout_width="0dp"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nameET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:padding="15dp"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/houseCampETLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
-        android:background="@drawable/background_input"
         android:ems="10"
         android:hint="@string/finca"
-        android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameET" />
+        app:layout_constraintTop_toBottomOf="@+id/nameETLayout">
 
-    <EditText
-        android:id="@+id/documentET"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/houseCampET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:padding="15dp"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/documentETLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@drawable/background_input"
         android:ems="10"
         android:hint="@string/doc"
-        android:inputType="number"
         android:minHeight="48dp"
-        android:padding="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/houseCampET"
-        app:layout_constraintStart_toStartOf="@+id/houseCampET"
-        app:layout_constraintTop_toBottomOf="@+id/houseCampET" />
+        app:layout_constraintEnd_toEndOf="@+id/houseCampETLayout"
+        app:layout_constraintStart_toStartOf="@+id/houseCampETLayout"
+        app:layout_constraintTop_toBottomOf="@+id/houseCampETLayout">
 
-    <EditText
-        android:id="@+id/emailSignUpET"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/documentET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:padding="15dp"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailSignUpETLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@drawable/background_input"
         android:ems="10"
         android:hint="@string/correo"
-        android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:padding="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/documentET"
-        app:layout_constraintStart_toStartOf="@+id/documentET"
-        app:layout_constraintTop_toBottomOf="@+id/documentET" />
+        app:layout_constraintEnd_toEndOf="@+id/documentETLayout"
+        app:layout_constraintStart_toStartOf="@+id/documentETLayout"
+        app:layout_constraintTop_toBottomOf="@+id/documentETLayout">
 
-    <EditText
-        android:id="@+id/phoneET"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailSignUpET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:padding="15dp"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/phoneETLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@drawable/background_input"
         android:ems="10"
         android:hint="@string/tel"
-        android:inputType="phone"
         android:minHeight="48dp"
-        android:padding="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/emailSignUpET"
-        app:layout_constraintStart_toStartOf="@+id/emailSignUpET"
-        app:layout_constraintTop_toBottomOf="@+id/emailSignUpET" />
+        app:layout_constraintEnd_toEndOf="@+id/emailSignUpETLayout"
+        app:layout_constraintStart_toStartOf="@+id/emailSignUpETLayout"
+        app:layout_constraintTop_toBottomOf="@+id/emailSignUpETLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/phoneET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:padding="15dp"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordSignUpET"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -144,15 +184,14 @@
         android:hint="@string/contraseña"
         android:inputType="textPassword"
         android:password="true"
-        app:layout_constraintEnd_toEndOf="@+id/phoneET"
-        app:layout_constraintStart_toStartOf="@+id/phoneET"
-        app:layout_constraintTop_toBottomOf="@+id/phoneET"
+        app:layout_constraintEnd_toEndOf="@+id/phoneETLayout"
+        app:layout_constraintStart_toStartOf="@+id/phoneETLayout"
+        app:layout_constraintTop_toBottomOf="@+id/phoneETLayout"
         app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/background_input"
             android:hint="@string/contraseña"
             android:padding="5dp"
             android:password="true"
@@ -162,6 +201,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordConfirmET"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -178,7 +218,6 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/background_input"
             android:padding="5dp"
             android:password="true"
             android:textColor="@color/black"
