@@ -14,6 +14,8 @@
     <string name="contraseña">Contraseña</string>
     <string name="confirm">Confirmar contraseña</string>
     <string name="foto">Foto</string>
+    <string name="camara">Camara</string>
+    <string name="galeria">Galeria</string>
     <string name="registro">Registrarme</string>
     <string name="sesion">Inicia sesion</string>
     <string name="registrar">Registrate</string>
@@ -56,5 +58,9 @@
         <item>Talado</item>
         <item>Recuperado</item>
     </string-array>
+
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="ok_guardar">Cambios realizados con exito</string>
 
 </resources>

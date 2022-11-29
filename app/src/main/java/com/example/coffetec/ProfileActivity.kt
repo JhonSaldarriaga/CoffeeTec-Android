@@ -6,12 +6,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
 import com.example.coffetec.databinding.ActivityProfileBinding
 import com.example.coffetec.model.User
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
@@ -37,9 +39,8 @@ class ProfileActivity : AppCompatActivity() {
             binding.houseCampTxt.text = user.houseCamp
             binding.emailTxt.text = user.email
             withContext(Dispatchers.Main){
-                val uriImage = Uri.parse(user.uriProfile)
-                uriImage.let {
-                    binding.imgProfile.setImageURI(uriImage)
+                Firebase.storage.getReference().child("users_photos").child(user.uriProfile).downloadUrl.addOnSuccessListener {
+                    Glide.with(binding.imgProfile).load(it).into(binding.imgProfile)
                 }
             }
         }
