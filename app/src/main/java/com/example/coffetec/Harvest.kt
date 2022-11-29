@@ -1,7 +1,9 @@
 package com.example.coffetec
 
+import java.io.Serializable
 import java.util.UUID
 
-class Harvest(var numBag: Int, var date: String, var qr: String, var state: String) {
-    var id: String = UUID.randomUUID().toString()
-}
+data class Harvest(val id:String="",
+                   val numLump: Int=0,
+                   val date: String="",
+                   val state: String="") : Serializable

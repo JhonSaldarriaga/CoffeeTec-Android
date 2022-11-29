@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array
+        name="states_spinner">
+        <item>Clasificado</item>
+        <item>Despulpado</item>
+        <item>Lavdo y Fermentación</item>
+        <item>Secado</item>
+        <item>Empaquetado</item>
+    </string-array>
+</resources>

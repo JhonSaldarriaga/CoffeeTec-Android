@@ -58,9 +58,32 @@
                 android:value="" />
         </activity>
 
+        <activity
+            android:name=".NewLumpActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ShowHarvestActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".NewHarvest"
+            android:exported="false">
+
+        <meta-data
+            android:name="android.app.lib_name"
+            android:value="" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+        </activity>
 
         <provider
             android:authorities="com.example.coffetec"
