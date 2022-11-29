@@ -41,7 +41,7 @@
     <EditText
         android:id="@+id/etDatos"
         android:layout_width="300dp"
-        android:layout_height="65dp"
+        android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/background_input"
         android:hint="Datos sobre sobre el bulto"
@@ -58,9 +58,9 @@
         android:fontFamily="@font/poppins_bold"
         android:text="Generar QR"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/etDatos"
-        app:layout_constraintStart_toStartOf="@+id/etDatos"
-        app:layout_constraintTop_toBottomOf="@+id/etDatos" />
+        app:layout_constraintEnd_toEndOf="@+id/ETKg"
+        app:layout_constraintStart_toStartOf="@+id/ETKg"
+        app:layout_constraintTop_toBottomOf="@+id/ETKg" />
 
     <Button
         android:id="@+id/btnCreate"
@@ -71,22 +71,22 @@
         android:fontFamily="@font/poppins_bold"
         android:text="Crear"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/ETKg"
-        app:layout_constraintStart_toStartOf="@+id/ETKg"
-        app:layout_constraintTop_toBottomOf="@+id/ETKg" />
+        app:layout_constraintEnd_toEndOf="@+id/btnGenerar"
+        app:layout_constraintStart_toStartOf="@+id/btnGenerar"
+        app:layout_constraintTop_toBottomOf="@+id/btnGenerar" />
 
     <EditText
         android:id="@+id/ETKg"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@drawable/background_input"
         android:ems="10"
         android:hint="Peso en (Kg)"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/btnGenerar"
-        app:layout_constraintStart_toStartOf="@+id/btnGenerar"
-        app:layout_constraintTop_toBottomOf="@+id/btnGenerar" />
+        app:layout_constraintEnd_toEndOf="@+id/etDatos"
+        app:layout_constraintStart_toStartOf="@+id/etDatos"
+        app:layout_constraintTop_toBottomOf="@+id/etDatos" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
