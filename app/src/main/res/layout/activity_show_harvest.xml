@@ -31,11 +31,11 @@
 
     <TextView
         android:id="@+id/dateHarvest"
-        android:layout_width="300dp"
-        android:layout_height="45sp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@drawable/background_input"
-        android:paddingStart="20dp"
+        android:padding="15dp"
         android:text="Fecha :"
         android:textAlignment="textStart"
         android:textSize="20sp"
@@ -45,11 +45,11 @@
 
     <TextView
         android:id="@+id/idHarvest"
-        android:layout_width="300dp"
-        android:layout_height="45sp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@drawable/background_input"
-        android:paddingStart="20dp"
+        android:padding="15dp"
         android:text="ID :"
         android:textAlignment="textStart"
         android:textSize="20sp"
@@ -59,11 +59,11 @@
 
     <TextView
         android:id="@+id/numBult"
-        android:layout_width="300dp"
-        android:layout_height="45dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:background="@drawable/background_input"
-        android:paddingStart="20dp"
+        android:padding="15dp"
         android:text="Numero de bultos:"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/stateSpinner2"
